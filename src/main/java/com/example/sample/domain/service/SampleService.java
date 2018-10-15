@@ -6,6 +6,7 @@
 //import org.springframework.stereotype.Service;
 //
 //import com.example.sample.domain.model.SampleEntity;
+////　↓SampleRepository呼びたいんだけど、見つかりませんよって言われる↓
 //import com.example.sample.domain.repository.SampleRepository;
 //
 //@Service
