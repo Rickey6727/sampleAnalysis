@@ -14,7 +14,7 @@ public class SampleService {
     @Autowired
     SampleRepository  sampleRepository;
 
-    public List<SampleEntity> getSample () {
+    public List<Integer> getSample () {
         return sampleRepository.selectAll();
     }
 }

@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface SampleRepository {
 
     @Select
-    List<SampleEntity> selectAll();
+    List<Integer> selectAll();
 
 }

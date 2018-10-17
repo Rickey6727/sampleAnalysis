@@ -17,7 +17,7 @@ public class SampleController {
     SampleService sampleService;
 
     @RequestMapping(value = "/sample", method = RequestMethod.GET)
-    public List<SampleEntity> getSample () {
+    public List<Integer> getSample () {
         return sampleService.getSample();
     }
 }
