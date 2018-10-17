@@ -10,8 +10,7 @@ public class SampleEntity {
 
     @Id
     private int id;
-
-//    private String name;
+    private String name;
 
 //～ getter, setter 省略 ～
 

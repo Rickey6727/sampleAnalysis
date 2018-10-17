@@ -1,1 +1,1 @@
-select id, name from sample order by id;
+select id, name from account order by id;
