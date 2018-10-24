@@ -1,0 +1,41 @@
+entityとdaoのソースコードをDBのテーブル定義から自動生成することが出来る。
+daoのソースコードについては上書きしないが、entityのソースコードは最新のDB定義に合わせて上書きされる。
+
+ほとんどのＤＢを参照するプロパティ定義は設定済みのため
+新しいテーブルが追加された際やテーブル定義に変更があった際は以下の手順を行って生成する。
+
+■１．生成したいテーブル名にマッチする正規表現を
+tablesPatternのvalueに設定する。
+(例：テーブル名を指定する場合)
+	<property name="tablesPattern" value="T_USER_BASIC_INFO" />
+(例：全部のテーブルを指定する場合)
+	<property name="tablesPattern" value=".*" />
+(例：一部マッチ等)
+	<property name="tablesPattern" value="M_USER_.*" />
+
+■２．参照するDB定義にあわせた<gen />のタグのコメントをはずす。
+
+■３．xmlを右クリックして、antの実行を選ぶ。
+
+■４．cat-coreのプロジェクトをリフレッシュして、
+　　　生成されたソースコードのファイルをeclipse上にちゃんと読み込ませる。
+
+■開発中
+○enumをマッピングするとき
+daoGenerateSetting/entityPropertyClassNames.propertiesに
+マッピングしたいフィールド名とクラス名を記述し、自動生成するとそのクラスがフィールドに利用されます。
+
+すでに実装中でEntityなどのメンバ変数をソースコードのみenumなどにしている場合
+１つ１つ定義をentityPropertyClassNames.propertiesに定義するのは中々面倒です。
+そういったときcom.gcrest.cardbattle.core.dev.ReverseDomaConfigDevToolを実行
+（ReverseDomaConfigDevToolを右クリックして、実行→javaアプリケーション）すると
+enumなど、通常のプリミティブな定義以外で定義されているメンバのプロパティが
+entityPropertyClassNames.propertiesに定義する形でコンソールに出力されます。
+あとは定義で必要な箇所をコピーして、entityPropertyClassNames.propertiesファイルに設定してください。
+ちゃんとentityPropertyClassNames.propertiesに関連の型が設定してあれば
+doma-genを再実行してEntity定義が再生成されても手でenumに変更しなおす必要がなくなります。
+
+
+○再生成したときの動作
+Daoは追記などがされている可能性があるため、上書きされません。
+Entityクラスは上書きされます。
