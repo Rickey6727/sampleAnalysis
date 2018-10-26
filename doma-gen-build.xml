@@ -6,13 +6,13 @@
   <property name="sqlDestDir" value="src/main/resources/"/><!-- SQLファイルが作成されるルート -->
   <property name="dialectName" value="postgres"/><!-- 利用するデータベース -->
   <property name="driverClassName" value="org.postgresql.Driver"/><!-- jdbcドライバ -->
-  <property name="url" value="jdbc:postgresql://localhost:5432/account"/><!-- 接続先 -->
+  <property name="url" value="jdbc:postgresql://localhost:5432/"/><!-- 接続先 -->
   <property name="user" value="interdev"/><!-- ユーザー -->
   <property name="password" value="9ijn8uhb"/><!-- パスワード -->
   <property name="ignoredTableNamePattern" value="schema_version"/>
-  <property name="entityPackageName" value="com.example.sample.entity"/><!-- エンティティが作成されるパッケージ -->
-  <property name="daoPackageName" value="com.example.sample.repository"/><!-- DAOが作成されるパッケージ -->
-  <!--  <property name="configClassName" value="jp.united.app.magic.config.DomaConfig"/> --><!-- AppConfigの場所 -->
+  <property name="entityPackageName" value="com.example.sample.entity."/><!-- エンティティが作成されるパッケージ -->
+  <property name="daoPackageName" value="com.example.sample.repository."/><!-- DAOが作成されるパッケージ -->
+  <property name="configClassName" value="com.example.sample.config.DomaConfig"/> <!-- AppConfigの場所 -->
   <property name="sqlFilePattern" value="META-INF/**/*.sql"/><!-- SQLファイルが作成されるフォルダ -->
 
   <path id="classpath">
@@ -21,27 +21,198 @@
 
   <taskdef name="gen" classname="org.seasar.doma.extension.gen.task.Gen" classpathref="classpath" loaderref="loader"/>
   <typedef name="entityConfig" classname="org.seasar.doma.extension.gen.task.EntityConfig" loaderref="loader"/>
-  <!--
-	<typedef name="repositoryConfig" classname="org.seasar.doma.extension.gen.task.RepositoryConfig" loaderref="loader"/>
-    <typedef name="sqlConfig" classname="org.seasar.doma.extension.gen.task.SqlConfig" loaderref="loader"/>
-  -->
+  <typedef name="daoConfig" classname="org.seasar.doma.extension.gen.task.DaoConfig" loaderref="loader"/>
+  <typedef name="sqlConfig" classname="org.seasar.doma.extension.gen.task.SqlConfig" loaderref="loader"/>
+
   
 
   <target name="gen">
+  	<!--
     <gen
-    	url="${url}"
+    	url="${url}account"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}">
       <entityConfig
         destdir="${javaDestDir}"
-        packageName="${entityPackageName}"
+        packageName="${entityPackageName}account"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}account"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    <gen
+       	url="${url}clothes"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}clothes"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}clothes"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    <gen
+       	url="${url}event"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}event"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}event"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    -->
+    <gen
+       	url="${url}game"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}game"
         entityPropertyClassNamesFile="src/main/resources/config/application.properties"
       />
       <daoConfig
         destdir="${javaDestDir}"
-        packageName="${daoPackageName}"
+        packageName="${daoPackageName}game"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+  	<!--
+    <gen
+       	url="${url}guild"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}guild"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}guild"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    <gen
+       	url="${url}history"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}history"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}history"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    -->
+    <gen
+       	url="${url}manage"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}manage"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}manage"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    <gen
+       	url="${url}operation"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}operation"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}operation"
+        configClassName="${configClassName}"
+      />
+      <sqlConfig
+        destdir="${sqlDestDir}"
+      />
+    </gen>
+    <gen
+       	url="${url}sales"
+    	user="${user}"
+    	password="${password}"
+    	dialectName="${dialectName}"
+    	driverClassName="${driverClassName}">
+      <entityConfig
+        destdir="${javaDestDir}"
+        packageName="${entityPackageName}sales"
+        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+      />
+    	
+      <daoConfig
+        destdir="${javaDestDir}"
+        packageName="${daoPackageName}sales"
         configClassName="${configClassName}"
       />
       <sqlConfig

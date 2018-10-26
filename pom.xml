@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+		<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
     	<thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
     	<thymeleaf-extras-springsecurity4.version>3.0.2.RELEASE</thymeleaf-extras-springsecurity4.version>
     	<thymeleaf-extras-data-attribute.version>2.0.5</thymeleaf-extras-data-attribute.version>
@@ -68,11 +68,6 @@
       		<artifactId>spring-boot-devtools</artifactId>
     	</dependency>
     	
-    	<dependency>
-      		<groupId>com.oracle</groupId>
-      		<artifactId>ojdbc7</artifactId>
-      		<version>12.1.0</version>
-    	</dependency>
 	</dependencies>
 
 	<build>

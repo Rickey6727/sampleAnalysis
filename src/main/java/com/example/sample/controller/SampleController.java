@@ -1,30 +1,58 @@
-package com.example.sample.controller;
+/**
+game, manage, operation, salesのみ（account, clothes, event, guild, historyは重いため入れていない）
 
-import java.util.List;
+以下の内容を抽出する
+【DB】
+game
+
+【テーブル】
+m_battery
+
+【カラム】
+battery_id
+sustained_time
+sheep_birth_time
+appearance_stable_id
+use_point
+del_flg
+start_date
+end_date
+create_date
+update_date
+
+
+【注意】
+Daoを呼び出すときは、Daoファイルに以下の記述が必要
+import org.seasar.doma.boot.ConfigAutowireable;
+@ConfigAutowireable
+*/
+
+package com.example.sample.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
-
-
-import com.example.sample.domain.model.SampleEntity;
-import com.example.sample.domain.service.SampleService;
+import com.example.sample.entity.game.MBattery;
+import com.example.sample.repository.game.MBatteryDao;
 
 @RestController
-public class SampleController {
+	public class SampleController {
+		@RequestMapping("/")
+		String hello() {
+			return "やあやあ世界！!";
+		}
+		
+@Autowired
+	private MBatteryDao MBatteryDao;
 
-    @Autowired
-    SampleService sampleService;
+@RequestMapping(value = "/sample", method = RequestMethod.GET)
+	public MBattery main(Model model) {
+	Integer batteryId = 1;
+		MBattery re = MBatteryDao.selectById(batteryId);
+		model.addAttribute("batteryId", re.getBatteryId());
+			return re;
+		}
 
-    @RequestMapping(value = "/sample", method = RequestMethod.GET) 
-    public List<Integer> getSample () {
-        return sampleService.getSample();
-    }
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String main(Model model) {
-    	    return "index";
-    }
-
-}
+	}
