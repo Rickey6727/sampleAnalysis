@@ -1,5 +1,7 @@
 package com.example.sample.repository.sales;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.sales.TRubyPointExchangeResult;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface TRubyPointExchangeResultDao {
 
@@ -20,7 +24,7 @@ public interface TRubyPointExchangeResultDao {
      * @return the TRubyPointExchangeResult entity
      */
     @Select
-    TRubyPointExchangeResult selectById(Integer accountId, Integer gachaId, Integer exchangeId);
+    Optional<TRubyPointExchangeResult> selectById(Integer accountId, Integer gachaId, Integer exchangeId);
 
     /**
      * @param entity

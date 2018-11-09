@@ -1,5 +1,7 @@
 package com.example.sample.repository.operation;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.operation.MEventCountry;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MEventCountryDao {
 
@@ -19,7 +23,7 @@ public interface MEventCountryDao {
      * @return the MEventCountry entity
      */
     @Select
-    MEventCountry selectById(Integer eventId, Integer countryCd);
+    Optional<MEventCountry> selectById(Integer eventId, Integer countryCd);
 
     /**
      * @param entity

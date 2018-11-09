@@ -1,5 +1,7 @@
 package com.example.sample.repository.sales;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.sales.TGachaBoxCollection31;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface TGachaBoxCollection31Dao {
 
@@ -21,7 +25,7 @@ public interface TGachaBoxCollection31Dao {
      * @return the TGachaBoxCollection31 entity
      */
     @Select
-    TGachaBoxCollection31 selectById(Integer accountId, Integer gachaId, Integer itemId, Integer itemType);
+    Optional<TGachaBoxCollection31> selectById(Integer accountId, Integer gachaId, Integer itemId, Integer itemType);
 
     /**
      * @param entity

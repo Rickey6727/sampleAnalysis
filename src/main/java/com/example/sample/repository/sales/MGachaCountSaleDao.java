@@ -1,5 +1,7 @@
 package com.example.sample.repository.sales;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.sales.MGachaCountSale;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MGachaCountSaleDao {
 
@@ -20,7 +24,7 @@ public interface MGachaCountSaleDao {
      * @return the MGachaCountSale entity
      */
     @Select
-    MGachaCountSale selectById(Integer gachaId, Integer gachaCount, Integer gachaKind);
+    Optional<MGachaCountSale> selectById(Integer gachaId, Integer gachaCount, Integer gachaKind);
 
     /**
      * @param entity

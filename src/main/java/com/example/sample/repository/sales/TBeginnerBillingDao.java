@@ -1,5 +1,7 @@
 package com.example.sample.repository.sales;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.sales.TBeginnerBilling;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface TBeginnerBillingDao {
 
@@ -18,7 +22,7 @@ public interface TBeginnerBillingDao {
      * @return the TBeginnerBilling entity
      */
     @Select
-    TBeginnerBilling selectById(Integer accountId);
+    Optional<TBeginnerBilling> selectById(Integer accountId);
 
     /**
      * @param entity

@@ -1,15 +1,19 @@
 package com.example.sample.repository.sales;
 
-import com.example.sample.config.DomaConfig;
+import java.util.Optional;
+
+import com.example.sample.config.SalesConfig;
 import com.example.sample.entity.sales.TTermBillingCountHistory;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
-@Dao(config = DomaConfig.class)
+@ConfigAutowireable
+@Dao(config = SalesConfig.class)
 public interface TTermBillingCountHistoryDao {
 
     /**

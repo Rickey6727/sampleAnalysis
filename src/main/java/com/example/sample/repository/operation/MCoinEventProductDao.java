@@ -1,5 +1,7 @@
 package com.example.sample.repository.operation;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.operation.MCoinEventProduct;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MCoinEventProductDao {
 
@@ -20,7 +24,7 @@ public interface MCoinEventProductDao {
      * @return the MCoinEventProduct entity
      */
     @Select
-    MCoinEventProduct selectById(Integer eventId, Integer nativeType, String productId);
+    Optional<MCoinEventProduct> selectById(Integer eventId, Integer nativeType, String productId);
 
     /**
      * @param entity

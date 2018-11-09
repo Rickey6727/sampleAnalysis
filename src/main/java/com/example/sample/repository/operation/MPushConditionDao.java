@@ -1,5 +1,7 @@
 package com.example.sample.repository.operation;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.operation.MPushCondition;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MPushConditionDao {
 
@@ -18,7 +22,7 @@ public interface MPushConditionDao {
      * @return the MPushCondition entity
      */
     @Select
-    MPushCondition selectById(Integer pushId);
+    Optional<MPushCondition> selectById(Integer pushId);
 
     /**
      * @param entity

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>sample page</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<style>
+			.main {	
+				max-width: 970px;
+				margin: 50px auto;
+			}
+			
+			h1 {
+				color: #145fb0;
+				padding-bottom: 10px;
+				margin-bottom: 5px;
+				font-size: 18px;
+				border-bottom: #145fb0 2px solid;
+			}
+
+			.search_engine {
+				position: relative;
+				border: #145fb0 0.5px solid;
+				padding-top: 10px;
+				background-color: #D9E5FF;
+				margin: 24px auto 0 auto;
+				height: 100px;
+			}
+			
+			.search_engine input {
+				border: #145fb0 1px solid;
+			}
+			
+			.search_submit {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				background-color: #145fb0;
+				text-align: center;
+				color: white;
+				font-weight: bold;
+			}
+			
+			.search_submit:hover {
+				opacity: 0.5;
+			}
+			
+			.search_result {
+				margin-top: 80px;
+			}
+			
+			.search_result_title {
+				width: 80%;
+				margin: auto;
+				text-align: center;
+				font-size: 18px;
+				color: #145fb0;
+				border-bottom: #145fb0 3px solid;
+			}
+			
+			.search_result ul {
+				list-style: none;
+				margin-top: 10px;
+			}
+			
+			.result_menu {
+				text-align: center;
+				font-weight: bold;
+			}
+			
+			.result_content {
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="title">
+				<h1>Gacha Information Searcher</h1>
+			</div>
+			<div class="search">
+				<div class="search_engine">
+					<div class="col-sm-2 col-xs-0"></div>
+					<div class="col-sm-2 col-xs-6">ガチャID</div>
+					<div class="col-sm-4 col-xs-6">
+					
+<!-- 今回はガチャID10186で検索した程で -->
+						<input type="text" value="10186">
+						
+					</div>
+					<div class="col-sm-2 col-xs-12 search_submit">
+						送信
+					</div>
+					<div class="col-sm-2 col-xs-0"></div>
+				</div>
+				<div class="search_result">
+					<div class="search_result_title">
+						<h3>検索結果</h3>
+					</div>
+					
+<!-- ここに検索結果を表示させる -->
+					<ul class="search_result_list">
+						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるgacha_titleカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">タイトル</div><div class="result_content col-sm-10 col-xs-12">${gachaTitle}検索結果を表示</div></li>
+						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるsale_start_dateカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">開始時間</div><div class="result_content col-sm-10 col-xs-12">検索結果を表示</div></li>
+						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるsale_end_dateカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">終了時間</div><div class="result_content col-sm-10 col-xs-12">検索結果を表示</div></li>
+						<!-- ”ガチャID：10186”の、m_gacha_countryテーブルにあるbanner_image_urlカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">バナー画像</div><div class="result_content col-sm-10 col-xs-12">検索結果を表示</div></li>
+						<!-- ”ガチャID：10186”の、t_sales_countテーブルにあるcount_valカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">回転数</div><div class="result_content col-sm-10 col-xs-12">検索結果を表示</div></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

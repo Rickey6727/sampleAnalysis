@@ -1,5 +1,7 @@
 package com.example.sample.repository.operation;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.operation.MNpcMessage;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MNpcMessageDao {
 
@@ -21,7 +25,7 @@ public interface MNpcMessageDao {
      * @return the MNpcMessage entity
      */
     @Select
-    MNpcMessage selectById(Integer npcAccountId, Integer countryCd, Integer townRank, Integer questId);
+    Optional<MNpcMessage> selectById(Integer npcAccountId, Integer countryCd, Integer townRank, Integer questId);
 
     /**
      * @param entity

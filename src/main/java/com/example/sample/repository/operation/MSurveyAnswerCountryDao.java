@@ -1,5 +1,7 @@
 package com.example.sample.repository.operation;
 
+import java.util.Optional;
+
 import com.example.sample.config.DomaConfig;
 import com.example.sample.entity.operation.MSurveyAnswerCountry;
 import org.seasar.doma.Dao;
@@ -7,9 +9,11 @@ import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
+import org.seasar.doma.boot.ConfigAutowireable;
 
 /**
  */
+@ConfigAutowireable
 @Dao(config = DomaConfig.class)
 public interface MSurveyAnswerCountryDao {
 
@@ -20,7 +24,7 @@ public interface MSurveyAnswerCountryDao {
      * @return the MSurveyAnswerCountry entity
      */
     @Select
-    MSurveyAnswerCountry selectById(Integer surveyAnswerId, Integer index, Integer countryCd);
+    Optional<MSurveyAnswerCountry> selectById(Integer surveyAnswerId, Integer index, Integer countryCd);
 
     /**
      * @param entity

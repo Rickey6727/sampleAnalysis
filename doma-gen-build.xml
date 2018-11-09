@@ -12,7 +12,7 @@
   <property name="ignoredTableNamePattern" value="schema_version"/>
   <property name="entityPackageName" value="com.example.sample.entity."/><!-- エンティティが作成されるパッケージ -->
   <property name="daoPackageName" value="com.example.sample.repository."/><!-- DAOが作成されるパッケージ -->
-  <property name="configClassName" value="com.example.sample.config.DomaConfig"/> <!-- AppConfigの場所 -->
+  <property name="configClassName" value="com.example.sample.config."/> <!-- AppConfigの場所 -->
   <property name="sqlFilePattern" value="META-INF/**/*.sql"/><!-- SQLファイルが作成されるフォルダ -->
 
   <path id="classpath">
@@ -27,23 +27,24 @@
   
 
   <target name="gen">
-  	<!--
+      <!--
     <gen
     	url="${url}account"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}account"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}account"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}AccountConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
@@ -54,17 +55,18 @@
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}clothes"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}clothes"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}ClothesConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
@@ -75,60 +77,61 @@
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}event"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}event"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}EventConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
-    -->
     <gen
        	url="${url}game"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}game"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}game"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}GameConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
-  	<!--
     <gen
        	url="${url}guild"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}guild"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}guild"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}GuildConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
@@ -139,60 +142,63 @@
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}history"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}history"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}HistoryConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
-    -->
     <gen
        	url="${url}manage"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}manage"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}manage"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}ManageConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
+     -->
     <gen
        	url="${url}operation"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}operation"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}operation"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}OperationConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
@@ -203,22 +209,22 @@
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
-    	driverClassName="${driverClassName}">
+    	driverClassName="${driverClassName}"
+    	templatePrimaryDir="daoGenerateSetting/template">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}sales"
-        entityPropertyClassNamesFile="src/main/resources/config/application.properties"
+        entityPropertyClassNamesFile="src/main/resources/application.properties"
       />
     	
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}sales"
-        configClassName="${configClassName}"
+        configClassName="${configClassName}SalesConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
   </target>
-
 </project>
