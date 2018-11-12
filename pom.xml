@@ -2,6 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- <web-app>
+		<servlet>
+		    <servlet-name>sample</servlet-name>
+		    <servlet-class>SampleServlet</servlet-class>
+	  	</servlet>
+	
+	    <servlet-mapping>
+	        <servlet-name>sample</servlet-name>
+	        <url-pattern>/sample</url-pattern>
+	    </servlet-mapping>
+
+	    <resource-ref>
+	    	<res-ref-name>jdbc/test</res-ref-name>
+	    	<res-type>javax.sql.DataSource</res-type>
+	    	<res-auth>Container</res-auth>
+	    </resource-ref>
+    
+    </web-app> -->
 
 	<groupId>com.example</groupId>
 	<artifactId>sample</artifactId>
@@ -102,5 +121,4 @@
       		</plugin>
 		</plugins>
 	</build>
-	
 </project>

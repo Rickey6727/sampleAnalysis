@@ -102,8 +102,8 @@
 					
 <!-- ここに検索結果を表示させる -->
 					<ul class="search_result_list">
-						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるgacha_titleカラムを表示させる  -->
-						<li><div class="result_menu col-sm-2 col-xs-12">タイトル</div><div class="result_content col-sm-10 col-xs-12">${gachaTitle}検索結果を表示</div></li>
+						<!-- ”ガチャID：10186”の、m_gacha_countryテーブルにあるgacha_titleカラムを表示させる  -->
+						<li><div class="result_menu col-sm-2 col-xs-12">タイトル</div><div class="result_content col-sm-10 col-xs-12">${MGachaCountry.gachaTitle}検索結果を表示</div></li>
 						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるsale_start_dateカラムを表示させる  -->
 						<li><div class="result_menu col-sm-2 col-xs-12">開始時間</div><div class="result_content col-sm-10 col-xs-12">検索結果を表示</div></li>
 						<!-- ”ガチャID：10186”の、m_gachaテーブルにあるsale_end_dateカラムを表示させる  -->
@@ -118,4 +118,13 @@
 			</div>
 		</div>
 	</body>
+	<script>
+	$.post( 'http://localhost:8080/sample/data')
+	 
+	.done(function( data ) {
+	 
+	    console.log( data );
+	 
+	})
+	</script>
 </html>
