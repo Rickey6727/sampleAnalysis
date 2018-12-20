@@ -1,0 +1,92 @@
+<div class="title" id="guild">
+    <h1>GuildEvent Analysis Searcher</h1>
+</div>
+<div class="search_engine">
+    <div class="gachaId serch_form">
+        <div class="col-sm-1 col-xs-0"></div>
+        <div class="col-sm-2 col-xs-6 search_form_title">イベントID</div>
+        <div class="col-sm-4 col-xs-6">
+            <select class="select_form" id="inputGuildEventId select_form_guild" name="inputGuildEventId" type="text" [(ngModel)]="inputGuildEventId" onchange="selectChangeGuild();">
+                <option>273</option>
+            </select>
+        </div>
+        <div class="col-sm-5 col-xs-0"></div>
+    </div>
+    <div class="col-sm-12 col-xs-12"></div>
+    <div class="col-sm-2 col-xs-2 search_submit" style="display: none;" id="submit_button_guild">
+        <input id="button" type="button" (click)="OnGuildEventButtonClick()" value="送信" onclick="submitGuild();">
+    </div>
+    <div class="col-sm-2 col-xs-0"></div>
+</div>
+
+<div id="search_result" class="search_result" style="display: none;" id="submit_guild">
+    <div class="search_result_title">
+        <h3>検索結果</h3>
+    </div> 
+    <div class="event_img">
+        <img src="http://54.200.220.138/image1/ui/update/{{captureEventStartDate |slice:0:4}}/{{captureEventStartDate |slice:5:7}}/{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_banner/ja/bnrL_{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_leagueEV.png">
+    </div>
+    <div id="data_list" class="data_list">
+        <table class="table" id="csv_guild" border="1" rules="all">
+            <thead>
+                <tr>
+                    <td>イベントID</td>
+                    <td class="long-td">イベント期間</td>
+                    <td>開催日数</td>
+                    <td>紙芝居既読</td>
+                    <td>参加人数</td>
+                    <td>人数差</td>
+                    <td>参加率</td>
+                    <td>期間UU数</td>
+                    <td>コインキャンペーン報酬①</td>
+                    <td>コインキャンペーン当月販売数①</td>
+                    <td>コインキャンペーン報酬②</td>
+                    <td>コインキャンペーン当月販売数②</td>
+                    <td>コインキャンペーン報酬③</td>
+                    <td>コインキャンペーン当月販売数③</td>
+                    <td>コインキャンペーン報酬④</td>
+                    <td>コインキャンペーン当月販売数④</td>
+                    <td>コインキャンペーン報酬⑤</td>
+                    <td>コインキャンペーン当月販売数⑤</td>
+                    <td>コインキャンペーン報酬⑥</td>
+                    <td>コインキャンペーン当月販売数⑥</td>
+                    <td>コインキャンペーン報酬⑦</td>
+                    <td>コインキャンペーン当月販売数⑦</td>
+                    <td>コインキャンペーン報酬⑧</td>
+                    <td>コインキャンペーン当月販売数⑧</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{captureEventId}}</td>
+                    <td>{{captureEventStartDate}} ~ {{captureEventEndDate}}</td>
+                    <td>{{captureEventTerm}}日間</td>
+                    <td>{{captureEventTutorialPlay}}人</td>
+                    <td>{{captureEventActiveUser}}人</td>
+                    <td>-{{captureEventTutorialPlay - captureEventActiveUser}}人</td>
+                    <td>{{captureEventActiveUser / captureEventTutorialPlay * 100 |number:0}}%</td>
+                    <td>{{uuCount}}人</td>
+                    <td>88coin</td>
+                    <td>{{coinCampaign1}}件</td>
+                    <td>196coin</td>
+                    <td>{{coinCampaign2}}件</td>
+                    <td>500coin</td>
+                    <td>{{coinCampaign3}}件</td>
+                    <td>900coin</td>
+                    <td>{{coinCampaign4}}件</td>
+                    <td>88coin</td>
+                    <td>{{coinCampaign5}}件</td>
+                    <td>196coin</td>
+                    <td>{{coinCampaign6}}件</td>
+                    <td>500coin</td>
+                    <td>{{coinCampaign7}}件</td>
+                    <td>900coin</td>
+                    <td>{{coinCampaign8}}件</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div  class="csv">
+        <b>ギルドイベント集計書き出しはコチラ → <a id="csv_guild_download" href="#" download="guild_analysis_{{captureEventId}}.csv" onclick="handleDownloadGuild()"><img src="./app/csv.png"></a></b>
+    </div>
+</div>

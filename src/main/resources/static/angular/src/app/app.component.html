@@ -1,6 +1,49 @@
-<div class="main">
-  <div class="title">
-    <h1>{{title}}</h1>
-  </div>
-  <my-dashboard></my-dashboard>
+<header>
+  <!-- <div class="top_menu">
+    <ul name="Goods" onclick="chkSelect();">
+      <li><button><a href="#capture" value="capture">ほかくイベント集計</a></button></li>
+      <li><button><a href="#delivery" value="delivery">納品イベント集計</a></button></li>
+      <li><button><a href="#guild" value="guild">ギルドイベント集計</a></button></li>
+      <li><button><a href="#gacha" value="gacha">ガチャ集計</a></button></li>
+      <li><button><a href="#clothes" value="clothes">アイテム所有者検索</a></button></li>
+    </ul>
+  </div> -->
+  <div class="top_menu cp_sl04">
+    <select required name="Goods" onchange="chkSelect();">
+        <option value="default" >洗濯してください</option>
+        <option value="capture" >ほかくイベント集計</option>
+        <option value="delivery" >納品イベント集計</option>
+        <option value="guild" >ギルドイベント集計</option>
+        <option value="gacha" >ガチャ集計</option>
+        <option value="clothes" >アイテム所有者検索</option>
+    </select>
 </div>
+    
+</header>
+<body>
+  <div class="main">
+
+    <my-dashboard></my-dashboard>
+    
+    <div style="display: none;" id="capture">
+      <capture-dashboard></capture-dashboard>
+    </div>
+
+    <div style="display: none;" id="delivery">
+      <delivery-dashboard></delivery-dashboard>
+    </div>
+
+    <div style="display: none;" id="guild">
+      <guild-dashboard></guild-dashboard>
+    </div>
+
+    <div style="display: none;" id="gacha">
+      <gacha-dashboard></gacha-dashboard>
+    </div>
+
+    <div style="display: none;" id="clothes">
+      <clothes-dashboard></clothes-dashboard>
+    </div>
+
+  </div>
+</body>

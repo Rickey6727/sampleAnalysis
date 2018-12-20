@@ -1,5 +1,6 @@
 package com.example.sample.entity.sales;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
@@ -35,11 +36,11 @@ public class MGacha {
 
     /** */
     @Column(name = "sale_start_date")
-    LocalDateTime saleStartDate;
+    Timestamp saleStartDate;
 
     /** */
     @Column(name = "sale_end_date")
-    LocalDateTime saleEndDate;
+    Timestamp saleEndDate;
 
     /** */
     @Column(name = "create_time")
@@ -160,7 +161,7 @@ public class MGacha {
      * 
      * @return the saleStartDate
      */
-    public LocalDateTime getSaleStartDate() {
+    public Timestamp getSaleStartDate() {
         return saleStartDate;
     }
 
@@ -169,7 +170,7 @@ public class MGacha {
      * 
      * @param saleStartDate the saleStartDate
      */
-    public void setSaleStartDate(LocalDateTime saleStartDate) {
+    public void setSaleStartDate(Timestamp saleStartDate) {
         this.saleStartDate = saleStartDate;
     }
 
@@ -178,7 +179,7 @@ public class MGacha {
      * 
      * @return the saleEndDate
      */
-    public LocalDateTime getSaleEndDate() {
+    public Timestamp getSaleEndDate() {
         return saleEndDate;
     }
 
@@ -187,7 +188,7 @@ public class MGacha {
      * 
      * @param saleEndDate the saleEndDate
      */
-    public void setSaleEndDate(LocalDateTime saleEndDate) {
+    public void setSaleEndDate(Timestamp saleEndDate) {
         this.saleEndDate = saleEndDate;
     }
 

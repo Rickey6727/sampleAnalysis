@@ -1,0 +1,53 @@
+<div class="title" id="clothes">
+    <h1>Clothes Owners Searcher</h1>
+</div>
+<div class="search_engine">
+    <div class="gachaId serch_form">
+        <div class="col-sm-1 col-xs-6"></div>
+        <div class="col-sm-2 col-xs-6 search_form_title">衣装ID</div>
+        <div class="col-sm-4 col-xs-6">
+            <select class="select_form" id="inputClothesId select_form_clothes" name="inputClothesId" type="text" [(ngModel)]="inputClothesId" onchange="selectChangeClothes();">
+                <option>10027490</option>
+                <option>10031656</option>
+                <option>10048751</option>
+                <option>10044118</option>
+                <option>10027788</option>
+            </select>
+        </div>
+        <div class="col-sm-5 col-xs-6"></div>
+    </div>
+    <div class="col-sm-12 col-xs-12"></div>
+    <div class="col-sm-2 col-xs-12 search_submit" style="display: none;" id="submit_button_clothes">
+        <input id="button" type="button" (click)="OnButtonClick()" value="送信" onclick="submitClothes();">
+    </div>
+    <div class="col-sm-2 col-xs-0"></div>
+</div>
+
+<div id="search_result" class="search_result" style="display: none;" id="submit_clothes">
+    <div class="search_result_title">
+        <h3>検索結果</h3>
+    </div> 
+    <div id="data_list" class="data_list clothes_table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>所有者数</td>
+                    <td>所有者一覧</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{clothesOwners}}人</td>
+                    <td>
+                        <ul id="list">
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div  class="csv">
+        <b>衣装所有者検索結果の書き出しはコチラ → <a id="csv_clothes_download" href="#" download="clothes_owners_{{inputClothesId}}.csv" onclick="handleDownloadClothes()"><img src="./app/csv.png"></a></b>
+    </div> -->
+</div>
+    

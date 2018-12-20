@@ -39,6 +39,10 @@ public class TCoinEvent {
     /** */
     @Column(name = "purchase_count")
     Integer purchaseCount;
+    
+    /** */
+    @Column(name = "count")
+    Integer totalCount;
 
     /** 
      * Returns the accountId.
@@ -146,5 +150,23 @@ public class TCoinEvent {
      */
     public void setPurchaseCount(Integer purchaseCount) {
         this.purchaseCount = purchaseCount;
+    }
+    
+    /** 
+     * Returns the totalCount.
+     * 
+     * @return the totalCount
+     */
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    /** 
+     * Sets the totalCount.
+     * 
+     * @param totalCount the totalCount
+     */
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
     }
 }

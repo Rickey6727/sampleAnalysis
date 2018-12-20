@@ -27,14 +27,15 @@
   
 
   <target name="gen">
-      <!--
+    <!--
     <gen
     	url="${url}account"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+    	tableNamePattern="t_tutorial_state">
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}account"
@@ -56,7 +57,8 @@
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+    	tableNamePattern='t_clothes_own'>
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}clothes"
@@ -66,19 +68,21 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}clothes"
-        configClassName="${configClassName}ClothesConfig"
+        configClassName="${configClassName}"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
+    
     <gen
        	url="${url}event"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+    	tableNamePattern='t_capture_captured|t_delivery_event_state'>
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}event"
@@ -109,12 +113,13 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}game"
-        configClassName="${configClassName}GameConfig"
+        configClassName="${configClassName}"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
+    
     <gen
        	url="${url}guild"
     	user="${user}"
@@ -131,19 +136,21 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}guild"
-        configClassName="${configClassName}GuildConfig"
+        configClassName="${configClassName}"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
+    
     <gen
        	url="${url}history"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+	tableNamePattern='t_login_history'>
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}history"
@@ -175,20 +182,21 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}manage"
-        configClassName="${configClassName}ManageConfig"
+        configClassName="${configClassName}"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
-     -->
+    
     <gen
        	url="${url}operation"
     	user="${user}"
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+    	tableNamePattern='m_gacha_exchange'>
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}operation"
@@ -198,7 +206,7 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}operation"
-        configClassName="${configClassName}OperationConfig"
+        configClassName="${configClassName}"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
@@ -210,7 +218,8 @@
     	password="${password}"
     	dialectName="${dialectName}"
     	driverClassName="${driverClassName}"
-    	templatePrimaryDir="daoGenerateSetting/template">
+    	templatePrimaryDir="daoGenerateSetting/template"
+    	tableNamePattern='t_coin_event'>
       <entityConfig
         destdir="${javaDestDir}"
         packageName="${entityPackageName}sales"
@@ -220,11 +229,12 @@
       <daoConfig
         destdir="${javaDestDir}"
         packageName="${daoPackageName}sales"
-        configClassName="${configClassName}SalesConfig"
+      	configClassName="${configClassName}SalesConfig"
       />
       <sqlConfig
         destdir="${sqlDestDir}"
       />
     </gen>
+     -->
   </target>
 </project>

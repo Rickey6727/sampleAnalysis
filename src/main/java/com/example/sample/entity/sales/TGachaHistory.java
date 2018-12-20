@@ -63,6 +63,10 @@ public class TGachaHistory {
     /** */
     @Column(name = "item_val")
     Integer itemVal;
+    
+    /** */
+    @Column(name = "count")
+    Integer totalCount;
 
     /** 
      * Returns the serialId.
@@ -278,5 +282,23 @@ public class TGachaHistory {
      */
     public void setItemVal(Integer itemVal) {
         this.itemVal = itemVal;
+    }
+    
+    /** 
+     * Returns the totalCount.
+     * 
+     * @return the totalCount
+     */
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    /** 
+     * Sets the totalCount.
+     * 
+     * @param totalCount the totalCount
+     */
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
     }
 }

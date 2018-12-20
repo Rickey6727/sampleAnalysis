@@ -1,5 +1,6 @@
 export class Data {
-    gachaId : number;
+    gachaId : String;
     gachaTitle : String;
     bannerImageUrl : String;
+    inputCaptureEventId : number;
 }
