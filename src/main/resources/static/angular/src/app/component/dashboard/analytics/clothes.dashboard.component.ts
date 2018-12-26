@@ -11,6 +11,7 @@ export class ClothesDashboardComponent implements OnInit{
 
     inputClothesId = "入力してね";
     clothesOwners = 0;
+    clothesOwnersString = "loading...";
 
     constructor(private dataService: DataService){}
 
@@ -20,6 +21,7 @@ export class ClothesDashboardComponent implements OnInit{
 
     OnButtonClick(): void {
         this.clothesOwners = 0;
+        this.clothesOwnersString = "loading...";
         
     //clothesデータベース
         //所有者リスト
@@ -40,8 +42,16 @@ export class ClothesDashboardComponent implements OnInit{
                 document.getElementById('list').appendChild(li);
             }
             this.clothesOwners = clothesOwnResult.data.length;
+            this.clothesOwnersString = this.clothesOwners.toString();
+            this.loading();
         } else {
-            this.clothesOwners = 0;
+            this.clothesOwnersString = "searching...";
         }
+    }
+
+    loading(): void {
+        document.getElementById('loading_clothes_owners').style.display="none";
+        document.getElementById('loading_download_clothes').style.display="none";
+        document.getElementById('download_clothes').style.display='block';
     }
 }

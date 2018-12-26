@@ -3,4 +3,4 @@ select
 from
     m_league_event
 where
-    event_id = /*eventId*/1
+    event_id = /*eventId*/'1'

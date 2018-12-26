@@ -3,6 +3,6 @@ select
 from
     t_league_event_account
 where
-    event_id = /*eventId*/1
+    event_id = /*eventId*/'1'
 and
-    current_point > 0
+    current_point > '0'

@@ -11,24 +11,39 @@ import {DataService} from "../../../services/data.service";
 export class GuildDashboardComponent implements OnInit{ 
     inputGuildEventId = "入力してね";
 
-    captureEventStartDate = "0";
-    captureEventEndDate = "0";
-    captureEventTurtorialId = "0";
-    captureEventTutorialPlay = 0;
+    img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+    //<img src="http://54.200.220.138/image1/ui/update/{{captureEventStartDate |slice:0:4}}/{{captureEventStartDate |slice:5:7}}/{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_banner/ja/bnrL_{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_leagueEV.png">
+
+    captureEventStartDate = "loading...";
+    captureEventEndDate = "loading...";
+    captureEventTurtorialId = "loading...";
+    captureEventIdString = "loading...";
+    captureEventTutorialPlayString = "loading...";
+    captureEventActiveUserString = "loading...";
+    captureEventTermString = "loading...";
+    totalCaptureCountString = "loading...";
+    uuCountString = "loading...";
+    captureNonActiveUserString = "loading...";
+    captureActiveUserRateString = "loading...";
+
     captureEventId = 0;
-    nextCaptureEventId = 0;
-    coinCampaign1 = "0";
-    coinCampaign2 = "0";
-    coinCampaign3 = "0";
-    coinCampaign4 = "0";
-    coinCampaign5 = "0";
-    coinCampaign6 = "0";
-    coinCampaign7 = "0";
-    coinCampaign8 = "0";
+    captureEventTutorialPlay = 0;
     captureEventActiveUser = 0;
     captureEventTerm = 0;
     totalCaptureCount = 0;
     uuCount = 0;
+    captureNonActiveUser = 0;
+    captureActiveUserRate = 0;
+
+    coinCampaign1 = "loading...";
+    coinCampaign2 = "loading...";
+    coinCampaign3 = "loading...";
+    coinCampaign4 = "loading...";
+    coinCampaign5 = "loading...";
+    coinCampaign6 = "loading...";
+    coinCampaign7 = "loading...";
+    coinCampaign8 = "loading...";
+    
 
     product1 = "com.unitedfun.android.cocoppaplay.003";
     product2 = "com.unitedfun.android.cocoppaplay.004";
@@ -39,6 +54,8 @@ export class GuildDashboardComponent implements OnInit{
     product7 = "com.unitedfun.cocoppaplay.005";
     product8 = "com.unitedfun.cocoppaplay.006";
 
+    guildCsvCount = 1;
+
 
     constructor(private dataService: DataService){}
 
@@ -48,24 +65,25 @@ export class GuildDashboardComponent implements OnInit{
 
 
     OnGuildEventButtonClick(): void {
-        this.captureEventStartDate = "0";
-        this.captureEventEndDate = "0";
-        this.captureEventTurtorialId = "0";
-        this.captureEventTutorialPlay = 0;
-        this.captureEventId = 0;
-        this.nextCaptureEventId = 0;
-        this.coinCampaign1 = "0";
-        this.coinCampaign2 = "0";
-        this.coinCampaign3 = "0";
-        this.coinCampaign4 = "0";
-        this.coinCampaign5 = "0";
-        this.coinCampaign6 = "0";
-        this.coinCampaign7 = "0";
-        this.coinCampaign8 = "0";
-        this.captureEventActiveUser = 0;
-        this.captureEventTerm = 0;
-        this.totalCaptureCount = 0;
-        this.uuCount = 0;
+        this.captureEventStartDate = "loading...";
+        this.captureEventEndDate = "loading...";
+        this.captureEventTurtorialId = "loading...";
+        this.coinCampaign1 = "loading...";
+        this.coinCampaign2 = "loading...";
+        this.coinCampaign3 = "loading...";
+        this.coinCampaign4 = "loading...";
+        this.coinCampaign5 = "loading...";
+        this.coinCampaign6 = "loading...";
+        this.coinCampaign7 = "loading...";
+        this.coinCampaign8 = "loading...";
+        this.captureEventIdString = "loading...";
+        this.captureEventTutorialPlayString = "loading...";
+        this.captureEventActiveUserString = "loading...";
+        this.captureEventTermString = "loading...";
+        this.totalCaptureCountString = "loading...";
+        this.uuCountString = "loading...";
+
+        this.guildCsvCount = 1;
 
         this.dataService.guildEventData(this.inputGuildEventId).subscribe(
             captureEventDataResult => this.setCaptureEventData(captureEventDataResult),
@@ -81,11 +99,6 @@ export class GuildDashboardComponent implements OnInit{
             captureEventActiveUserDataResult => this.setCaptureEventActiveUserData(captureEventActiveUserDataResult),
             error => alert('通信エラー' + error)
         );
-
-        this.dataService.CaptureCountData(this.inputGuildEventId).subscribe(
-            captureCountDataResult => this.setCaptureCountData(captureCountDataResult),
-            error => alert('通信エラー' + error)
-        );
     }
     
     setCaptureEventData(captureEventDataResult): void {
@@ -95,9 +108,11 @@ export class GuildDashboardComponent implements OnInit{
         if (captureEventDataResult.data) {
             const captureEventIdString = captureEventDataResult.data.eventId;
             this.captureEventId = parseInt(captureEventIdString);
+            this.captureEventIdString = this.captureEventId.toString();
             this.captureEventStartDate = captureEventDataResult.data.startDate;
             this.captureEventEndDate = captureEventDataResult.data.endDate;
             this.captureEventTurtorialId = captureEventDataResult.data.startTutorialId;
+            this.img_src = "http://www.cocoppaplay.com/image1/ui/update/" + this.captureEventStartDate.slice(0,4) + "/" + this.captureEventStartDate.slice(5,7) + "/" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_banner/ja/bnrL_" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_leagueEV.png";
             this.dataService.tutorialPlayData(this.captureEventTurtorialId).subscribe(
                 tutorialPlayResult => this.setTutorialPlayData(tutorialPlayResult),
                 error => alert('通信エラー' + error)
@@ -139,10 +154,10 @@ export class GuildDashboardComponent implements OnInit{
                 error => alert('通信エラー' + error)
             );
         } else {
-            this.captureEventId = 0;
-            this.captureEventStartDate = "0";
-            this.captureEventEndDate = "0";
-            this.captureEventTurtorialId = "0";
+            this.captureEventIdString = "(NO DATA)";
+            this.captureEventStartDate = "(NO DATA)";
+            this.captureEventEndDate = "(NO DATA)";
+            this.captureEventTurtorialId = "(NO DATA)";
         }
     }
 
@@ -152,8 +167,13 @@ export class GuildDashboardComponent implements OnInit{
         }
         if (tutorialPlayResult.data.totalCount) {
             this.captureEventTutorialPlay = tutorialPlayResult.data.totalCount;
+            this.captureEventTutorialPlayString = this.captureEventTutorialPlay.toString();
+            this.captureNonActiveUser = this.captureEventActiveUser - this.captureEventTutorialPlay;
+            this.captureNonActiveUserString = this.captureNonActiveUser.toString();
+            this.captureActiveUserRate = Math.round(this.captureEventActiveUser / this.captureEventTutorialPlay * 100);
+            this.captureActiveUserRateString = this.captureActiveUserRate.toString();
         } else {
-            this.captureEventTutorialPlay = 0;
+            this.captureEventTutorialPlayString = "(NO DATA)";
         }
     }
 
@@ -164,7 +184,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign1 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign1 = "0";
+            this.coinCampaign1 = "(NO DATA)";
         }
     }
 
@@ -175,7 +195,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign2 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign2 = "0";
+            this.coinCampaign2 = "(NO DATA)";
         }
     }
 
@@ -186,7 +206,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign3 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign3 = "0";
+            this.coinCampaign3 = "(NO DATA)";
         }
     }
 
@@ -197,7 +217,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign4 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign4 = "0";
+            this.coinCampaign4 = "(NO DATA)";
         }
     }
 
@@ -208,7 +228,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign5 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign5 = "0";
+            this.coinCampaign5 = "(NO DATA)";
         }
     }
 
@@ -219,7 +239,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign6 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign6 = "0";
+            this.coinCampaign6 = "(NO DATA)";
         }
     }
 
@@ -230,7 +250,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign7 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign7 = "0";
+            this.coinCampaign7 = "(NO DATA)";
         }
     }
 
@@ -242,7 +262,7 @@ export class GuildDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign8 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign8 = "0";
+            this.coinCampaign8 = "(NO DATA)";
         }
     }
 
@@ -253,8 +273,9 @@ export class GuildDashboardComponent implements OnInit{
         }
         if (captureEventActiveUserDataResult.data) {
             this.captureEventActiveUser = captureEventActiveUserDataResult.data.totalCount;
+            this.captureEventActiveUserString = this.captureEventActiveUser.toString();
         } else {
-            this.captureEventActiveUser = 0;
+            this.captureEventActiveUserString = "(NO DATA)";
         }
     }
 
@@ -265,20 +286,9 @@ export class GuildDashboardComponent implements OnInit{
         }
         if (captureEventTermDataResult.data) {
             this.captureEventTerm = captureEventTermDataResult.data.term;
+            this.captureEventTermString = this.captureEventTerm.toString();
         } else {
-            this.captureEventTerm = 0;
-        }
-    }
-
-    setCaptureCountData(captureCountDataResult): void {
-        console.log(captureCountDataResult.data);
-        if(captureCountDataResult.error) {
-            alert('Web APIエラー' + captureCountDataResult.message);
-        }
-        if (captureCountDataResult.data) {
-            this.totalCaptureCount = captureCountDataResult.data.totalCaptureCount;
-        } else {
-            this.totalCaptureCount = 0;
+            this.captureEventTermString = "(NO DATA)";
         }
     }
 
@@ -289,8 +299,19 @@ export class GuildDashboardComponent implements OnInit{
         }
         if (uuCountResult.data) {
             this.uuCount = uuCountResult.data.totalCount;
+            this.uuCountString = this.uuCount.toString();
+            this.guildCsv();
         } else {
-            this.uuCount = 0;
+            this.uuCountString = "(NO DATA)";
+            this.guildCsv();
+        }
+    }
+
+    guildCsv(): void {
+        this.guildCsvCount --;
+        if (this.guildCsvCount == 0) {
+            document.getElementById('download_guild').style.display='block';
+            document.getElementById('loading_download_guild').style.display='none';
         }
     }
 }

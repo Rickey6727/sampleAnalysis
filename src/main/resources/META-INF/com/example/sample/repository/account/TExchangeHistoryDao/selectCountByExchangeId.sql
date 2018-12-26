@@ -1,6 +1,6 @@
-select
+SELECT
     count(*)
-from
+FROM
     t_exchange_history
-where
-    exchange_id = /*exchangeId*/1
+WHERE
+    exchange_id = /*exchangeId*/'1'

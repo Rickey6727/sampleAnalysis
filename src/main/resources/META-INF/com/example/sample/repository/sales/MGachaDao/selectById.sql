@@ -3,4 +3,4 @@ select
 from
   m_gacha
 where
-  gacha_id = /* gachaId */1
+  gacha_id = /* gachaId */'1'

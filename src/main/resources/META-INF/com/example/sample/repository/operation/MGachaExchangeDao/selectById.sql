@@ -3,4 +3,4 @@ select
 from
   m_gacha_exchange
 where
-  exchange_id = /* exchangeId */1
+  exchange_id = /* exchangeId */'1'

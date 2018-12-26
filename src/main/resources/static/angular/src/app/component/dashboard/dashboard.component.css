@@ -91,6 +91,8 @@
 
 .data_list {
     margin-top: 10px;
+    max-width: 1000px;
+    overflow: auto;
 }
 
 .data_list img {
@@ -99,11 +101,6 @@
 
 ul {
     list-style: none;
-}
-
-.data_list {
-    max-width: 1000px;
-    overflow: auto;
 }
 
 table {
@@ -160,6 +157,40 @@ thead {
 
 .clothes_table {
     text-align: center;
-    margin: 20px auto;
+    margin: 30px auto;
     width: 500px;
+    max-height: 600px;
+}
+
+.reset {
+    position: absolute;
+    background-color: rgb(255, 60, 60);
+    color: white;
+	border-radius: 2px;
+    border-radius: 50px;
+    font-size: 10px;
+    width:150px;
+    height: 20px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 250px;
+    margin: auto;
+    border-bottom: solid 2px rgb(255, 13, 13);
+    box-shadow: inset 0 3px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+
+
+.reset:active {
+    border-bottom: solid 2px rgb(255, 60, 60);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.30);
+}
+
+#list {
+    padding-left: 0;
+}
+
+#loading_clothes_owners {
+    margin-left: 110px;
 }

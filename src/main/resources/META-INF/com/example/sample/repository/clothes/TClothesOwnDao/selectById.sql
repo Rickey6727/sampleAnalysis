@@ -1,8 +1,8 @@
-select
+SELECT
   /*%expand*/*
-from
+FROM
   t_clothes_own
-where
-  account_id = /* accountId */1
-  and
-  serial_id = /* serialId */1
+WHERE
+  account_id = /* accountId */'1'
+AND
+  serial_id = /* serialId */'1'

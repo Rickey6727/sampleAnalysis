@@ -12,49 +12,75 @@ export class CaptureDashboardComponent implements OnInit{
 
     inputCaptureEventId = "入力してね";
 
-    captureEventStartDate = "0";
-    captureEventEndDate = "0";
-    captureEventTurtorialId = "0";
+    img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+
+    captureEventStartDate = "loading...";
+    captureEventEndDate = "loading...";
+    captureEventTurtorialId = "loading...";
+    coinCampaign1 = "loading...";
+    coinCampaign2 = "loading...";
+    coinCampaign3 = "loading...";
+    coinCampaign4 = "loading...";
+    coinCampaign5 = "loading...";
+    coinCampaign6 = "loading...";
+    coinCampaign7 = "loading...";
+    coinCampaign8 = "loading...";
+    captureDailyCountString = "loading...";
+
     captureEventTutorialPlay = 0;
     captureEventId = 0;
-    nextCaptureEventId = 0;
-    coinCampaign1 = "0";
-    coinCampaign2 = "0";
-    coinCampaign3 = "0";
-    coinCampaign4 = "0";
-    coinCampaign5 = "0";
-    coinCampaign6 = "0";
-    coinCampaign7 = "0";
-    coinCampaign8 = "0";
     captureEventActiveUser = 0;
     captureEventTerm = 0;
     totalCaptureCount = 0;
     uuCount = 0;
-    aaaaaaa = "押忍";
     captureDailyCount = 0;
-    captureDailyCountString = "0";
     captureTermCount = 0;
+    captureActiveUserRate = 0;
+    captureNonActiveUser = 0;
 
-    nextCaptureEventIdString =  "0";
-    nextCaptureEventStartDate = "0";
-    nextCaptureEventEndDate = "0";
-    nextCaptureEventTurtorialId = "0";
+    captureEventTutorialPlayString = "loading...";
+    captureEventIdString = "loading...";
+    captureEventActiveUserString = "loading...";
+    captureEventTermString = "loading...";
+    totalCaptureCountString = "loading...";
+    uuCountString = "loading...";
+    captureTermCountString = "loading...";
+    captureActiveUserRateString = "loading...";
+    captureNonActiveUserString = "loading...";
+
+    nextCaptureEventIdString =  "loading...";
+    nextCaptureEventStartDate = "loading...";
+    nextCaptureEventEndDate = "loading...";
+    nextCaptureEventTurtorialId = "loading...";
+    nextCoinCampaign1 = "loading...";
+    nextCoinCampaign2 = "loading...";
+    nextCoinCampaign3 = "loading...";
+    nextCoinCampaign4 = "loading...";
+    nextCoinCampaign5 = "loading...";
+    nextCoinCampaign6 = "loading...";
+    nextCoinCampaign7 = "loading...";
+    nextCoinCampaign8 = "loading...";
+    nextCaptureDailyCountString = "loading...";
+    
+    nextCaptureEventId = 0;
     nextCaptureEventActiveUser = 0;
     nextCaptureEventTerm = 0;
     nextTotalCaptureCount = 0;
     nextCaptureEventTutorialPlay = 0;
-    nextCoinCampaign1 = "0";
-    nextCoinCampaign2 = "0";
-    nextCoinCampaign3 = "0";
-    nextCoinCampaign4 = "0";
-    nextCoinCampaign5 = "0";
-    nextCoinCampaign6 = "0";
-    nextCoinCampaign7 = "0";
-    nextCoinCampaign8 = "0";
     nextUuCount = 0;
     nextCaptureDailyCount = 0;
-    nextCaptureDailyCountString = "0";
     nextCaptureTermCount = 0;
+    nextCaptureActiveUserRate = 0;
+    nextCaptureNonActiveUser = 0;
+
+    nextCaptureEventTutorialPlayString = "loading...";
+    nextCaptureEventActiveUserString = "loading...";
+    nextCaptureEventTermString = "loading...";
+    nextTotalCaptureCountString = "loading...";
+    nextUuCountString = "loading...";
+    nextCaptureTermCountString = "loading...";
+    nextCaptureActiveUserRateString = "loading...";
+    nextCaptureNonActiveUserString = "loading...";
 
     product1 = "com.unitedfun.android.cocoppaplay.003";
     product2 = "com.unitedfun.android.cocoppaplay.004";
@@ -65,6 +91,8 @@ export class CaptureDashboardComponent implements OnInit{
     product7 = "com.unitedfun.cocoppaplay.005";
     product8 = "com.unitedfun.cocoppaplay.006";
 
+    captureCsvCount=1;
+
     constructor(private dataService: DataService){}
     
     ngOnInit(): void {
@@ -73,48 +101,50 @@ export class CaptureDashboardComponent implements OnInit{
 
 
     OnCaptureEventButtonClick(): void {
-        this.captureEventStartDate = "0";
-        this.captureEventEndDate = "0";
-        this.captureEventTurtorialId = "0";
+        this.captureEventStartDate = "loading...";
+        this.captureEventEndDate = "loading...";
+        this.captureEventTurtorialId = "loading...";
         this.captureEventTutorialPlay = 0;
         this.captureEventId = 0;
         this.nextCaptureEventId = 0;
-        this.coinCampaign1 = "0";
-        this.coinCampaign2 = "0";
-        this.coinCampaign3 = "0";
-        this.coinCampaign4 = "0";
-        this.coinCampaign5 = "0";
-        this.coinCampaign6 = "0";
-        this.coinCampaign7 = "0";
-        this.coinCampaign8 = "0";
+        this.coinCampaign1 = "loading...";
+        this.coinCampaign2 = "loading...";
+        this.coinCampaign3 = "loading...";
+        this.coinCampaign4 = "loading...";
+        this.coinCampaign5 = "loading...";
+        this.coinCampaign6 = "loading...";
+        this.coinCampaign7 = "loading...";
+        this.coinCampaign8 = "loading...";
         this.captureEventActiveUser = 0;
         this.captureEventTerm = 0;
         this.totalCaptureCount = 0;
         this.uuCount = 0;
         this.captureDailyCount = 0;
-        this.captureDailyCountString = "0";
+        this.captureDailyCountString = "loading...";
         this.captureTermCount = 0;
     
-        this.nextCaptureEventIdString =  "0";
-        this.nextCaptureEventStartDate = "0";
-        this.nextCaptureEventEndDate = "0";
-        this.nextCaptureEventTurtorialId = "0";
+        this.nextCaptureEventIdString =  "loading...";
+        this.nextCaptureEventStartDate = "loading...";
+        this.nextCaptureEventEndDate = "loading...";
+        this.nextCaptureEventTurtorialId = "loading...";
         this.nextCaptureEventActiveUser = 0;
         this.nextCaptureEventTerm = 0;
         this.nextTotalCaptureCount = 0;
         this.nextCaptureEventTutorialPlay = 0;
-        this.nextCoinCampaign1 = "0";
-        this.nextCoinCampaign2 = "0";
-        this.nextCoinCampaign3 = "0";
-        this.nextCoinCampaign4 = "0";
-        this.nextCoinCampaign5 = "0";
-        this.nextCoinCampaign6 = "0";
-        this.nextCoinCampaign7 = "0";
-        this.nextCoinCampaign8 = "0";
+        this.nextCoinCampaign1 = "loading...";
+        this.nextCoinCampaign2 = "loading...";
+        this.nextCoinCampaign3 = "loading...";
+        this.nextCoinCampaign4 = "loading...";
+        this.nextCoinCampaign5 = "loading...";
+        this.nextCoinCampaign6 = "loading...";
+        this.nextCoinCampaign7 = "loading...";
+        this.nextCoinCampaign8 = "loading...";
         this.nextUuCount = 0;
         this.nextCaptureDailyCount = 0;
-        this.nextCaptureDailyCountString = "0";
+        this.nextCaptureDailyCountString = "loading...";
         this.nextCaptureTermCount = 0;
+
+        this.captureCsvCount=1;
 
     //eventデータベース
         //イベントID・期間・紙芝居ID
@@ -143,9 +173,11 @@ export class CaptureDashboardComponent implements OnInit{
         if (captureEventDataResult.data) {
             const captureEventIdString = captureEventDataResult.data.eventId;
             this.captureEventId = parseInt(captureEventIdString);
+            this.captureEventIdString = this.captureEventId.toString();
             this.captureEventStartDate = captureEventDataResult.data.startDate;
             this.captureEventEndDate = captureEventDataResult.data.endDate;
             this.captureEventTurtorialId = captureEventDataResult.data.startTutorialId;
+            this.img_src = "http://www.cocoppaplay.com/image1/ui/update/" + this.captureEventStartDate.slice(0,4) + "/" + this.captureEventStartDate.slice(5,7) + "/" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_banner/ja/bnrL_" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_captureEV.png";
             this.dataService.tutorialPlayData(this.captureEventTurtorialId).subscribe(
                 tutorialPlayResult => this.setTutorialPlayData(tutorialPlayResult),
                 error => alert('通信エラー' + error)
@@ -210,10 +242,11 @@ export class CaptureDashboardComponent implements OnInit{
                 error => alert('通信エラー' + error)
             );
         } else {
-            this.captureEventId = 0;
-            this.captureEventStartDate = "0";
-            this.captureEventEndDate = "0";
-            this.captureEventTurtorialId = "0";
+            this.captureEventIdString = "(NO DATA)";
+            this.captureEventStartDate = "(NO DATA)";
+            this.captureEventEndDate = "(NO DATA)";
+            this.captureEventTurtorialId = "(NO DATA)";
+            this.nextCaptureEventIdString = "(NO DATA)";
         }
     }
 
@@ -223,8 +256,13 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (tutorialPlayResult.data.totalCount) {
             this.captureEventTutorialPlay = tutorialPlayResult.data.totalCount;
+            this.captureEventTutorialPlayString = this.captureEventTutorialPlay.toString();
+            this.captureNonActiveUser = this.captureEventActiveUser - this.captureEventTutorialPlay;
+            this.captureNonActiveUserString = this.captureNonActiveUser.toString();
+            this.captureActiveUserRate = Math.round(this.captureEventActiveUser / this.captureEventTutorialPlay * 100);
+            this.captureActiveUserRateString = this.captureActiveUserRate.toString();
         } else {
-            this.captureEventTutorialPlay = 0;
+            this.captureEventTutorialPlayString = "(NO DATA)";
         }
     }
 
@@ -235,7 +273,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign1 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign1 = "0";
+            this.coinCampaign1 = "(NO DATA)";
         }
     }
 
@@ -246,7 +284,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign2 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign2 = "0";
+            this.coinCampaign2 = "(NO DATA)";
         }
     }
 
@@ -257,7 +295,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign3 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign3 = "0";
+            this.coinCampaign3 = "(NO DATA)";
         }
     }
 
@@ -268,7 +306,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign4 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign4 = "0";
+            this.coinCampaign4 = "(NO DATA)";
         }
     }
 
@@ -279,7 +317,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign5 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign5 = "0";
+            this.coinCampaign5 = "(NO DATA)";
         }
     }
 
@@ -290,7 +328,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign6 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign6 = "0";
+            this.coinCampaign6 = "(NO DATA)";
         }
     }
 
@@ -301,7 +339,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign7 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign7 = "0";
+            this.coinCampaign7 = "(NO DATA)";
         }
     }
 
@@ -313,7 +351,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign8 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign8 = "0";
+            this.coinCampaign8 = "(NO DATA)";
         }
     }
 
@@ -324,8 +362,9 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (captureEventActiveUserDataResult.data) {
             this.captureEventActiveUser = captureEventActiveUserDataResult.data.totalCount;
+            this.captureEventActiveUserString = this.captureEventActiveUser.toString();
         } else {
-            this.captureEventActiveUser = 0;
+            this.captureEventActiveUserString = "(NO DATA)";
         }
     }
 
@@ -336,8 +375,12 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (captureEventTermDataResult.data) {
             this.captureEventTerm = captureEventTermDataResult.data.term;
+            this.captureEventTermString = this.captureEventTerm.toString();
+            this.captureTermCount = Math.round(this.totalCaptureCount / this.captureEventTerm);
+            this.captureTermCountString = this.captureTermCount.toString();
+            this.captureDailyCount = Math.round(this.totalCaptureCount / this.captureEventTerm / this.captureEventActiveUser);
         } else {
-            this.captureEventTerm = 0;
+            this.captureEventTermString = "(NO DATA)";
         }
     }
 
@@ -348,11 +391,13 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (captureCountDataResult.data) {
             this.totalCaptureCount = captureCountDataResult.data.totalCaptureCount;
+            this.totalCaptureCountString = this.totalCaptureCount.toString();
             this.captureTermCount = Math.round(this.totalCaptureCount / this.captureEventTerm);
+            this.captureTermCountString = this.captureTermCount.toString();
             this.captureDailyCount = Math.round(this.totalCaptureCount / this.captureEventTerm / this.captureEventActiveUser);
             this.captureDailyCountString = this.captureDailyCount.toString();
         } else {
-            this.totalCaptureCount = 0;
+            this.totalCaptureCountString = "(NO DATA)";
         }
     }
 
@@ -363,8 +408,13 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (uuCountResult.data) {
             this.uuCount = uuCountResult.data.totalCount;
+            this.uuCountString = this.uuCount.toString();
+            this.captureDailyCount = Math.round(this.totalCaptureCount / this.captureEventTerm / this.captureEventActiveUser);
+            this.captureDailyCountString = this.captureDailyCount.toString();
+            this.captureActiveUserRate = Math.round(this.captureEventActiveUser / this.captureEventTutorialPlay * 100);
+            this.captureActiveUserRateString = this.captureActiveUserRate.toString();
         } else {
-            this.uuCount = 0;
+            this.uuCountString = "(NO DATA)";
         }
     }
 
@@ -418,10 +468,10 @@ export class CaptureDashboardComponent implements OnInit{
                 error => alert('通信エラー' + error)
             );
         } else {
-            this.nextCaptureEventId = 0;
-            this.nextCaptureEventStartDate = "0";
-            this.nextCaptureEventEndDate = "0";
-            this.nextCaptureEventTurtorialId = "0";
+            this.nextCaptureEventIdString = "(NO DATA)";
+            this.nextCaptureEventStartDate = "(NO DATA)";
+            this.nextCaptureEventEndDate = "(NO DATA)";
+            this.nextCaptureEventTurtorialId = "(NO DATA)";
         }
     }
 
@@ -432,8 +482,9 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (nextCaptureEventActiveUserDataResult.data) {
             this.nextCaptureEventActiveUser = nextCaptureEventActiveUserDataResult.data.totalCount;
+            this.nextCaptureEventActiveUserString = this.nextCaptureEventActiveUser.toString();
         } else {
-            this.nextCaptureEventActiveUser = 0;
+            this.nextCaptureEventActiveUserString = "(NO DATA)";
         }
     }
 
@@ -444,8 +495,12 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (nextCaptureEventTermDataResult.data) {
             this.nextCaptureEventTerm = nextCaptureEventTermDataResult.data.term;
+            this.nextCaptureEventTermString = this.nextCaptureEventTerm.toString();
+            this.nextCaptureTermCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm);
+            this.nextCaptureTermCountString = this.nextCaptureTermCount.toString();
+            this.nextCaptureDailyCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
         } else {
-            this.nextCaptureEventTerm = 0;
+            this.nextCaptureEventTermString = "(NO DATA)";
         }
     }
 
@@ -456,11 +511,13 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (nextCaptureCountDataResult.data) {
             this.nextTotalCaptureCount = nextCaptureCountDataResult.data.totalCaptureCount;
+            this.nextTotalCaptureCountString = this.nextTotalCaptureCount.toString();
             this.nextCaptureTermCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm);
+            this.nextCaptureTermCountString = this.nextCaptureTermCount.toString();
             this.nextCaptureDailyCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
             this.nextCaptureDailyCountString = this.nextCaptureDailyCount.toString();
         } else {
-            this.nextTotalCaptureCount = 0;
+            this.nextTotalCaptureCountString = "(NO DATA)";
         }
     }
 
@@ -470,8 +527,13 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (nextTutorialPlayResult.data.totalCount) {
             this.nextCaptureEventTutorialPlay = nextTutorialPlayResult.data.totalCount;
+            this.nextCaptureEventTutorialPlayString = this.nextCaptureEventTutorialPlay.toString();
+            this.nextCaptureNonActiveUser = this.nextCaptureEventActiveUser - this.nextCaptureEventTutorialPlay;
+            this.nextCaptureNonActiveUserString = this.nextCaptureNonActiveUser.toString();
+            this.nextCaptureActiveUserRate = Math.round(this.nextCaptureEventActiveUser / this.nextCaptureEventTutorialPlay * 100);
+            this.nextCaptureActiveUserRateString = this.nextCaptureActiveUserRate.toString();
         } else {
-            this.nextCaptureEventTutorialPlay = 0;
+            this.nextCaptureEventTutorialPlayString = "(NO DATA)";
         }
     }
 
@@ -482,7 +544,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign1 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign1 = "0";
+            this.nextCoinCampaign1 = "(NO DATA)";
         }
     }
 
@@ -493,7 +555,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign2 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign2 = "0";
+            this.nextCoinCampaign2 = "(NO DATA)";
         }
     }
 
@@ -504,7 +566,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign3 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign3 = "0";
+            this.nextCoinCampaign3 = "(NO DATA)";
         }
     }
 
@@ -515,7 +577,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign4 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign4 = "0";
+            this.nextCoinCampaign4 = "(NO DATA)";
         }
     }
 
@@ -526,7 +588,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign5 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign5 = "0";
+            this.nextCoinCampaign5 = "(NO DATA)";
         }
     }
 
@@ -537,7 +599,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign6 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign6 = "0";
+            this.nextCoinCampaign6 = "(NO DATA)";
         }
     }
 
@@ -548,7 +610,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign7 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign7 = "0";
+            this.nextCoinCampaign7 = "(NO DATA)";
         }
     }
 
@@ -560,7 +622,7 @@ export class CaptureDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign8 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign8 = "0";
+            this.nextCoinCampaign8 = "(NO DATA)";
         }
     }
 
@@ -571,8 +633,26 @@ export class CaptureDashboardComponent implements OnInit{
         }
         if (nextUuCountResult.data) {
             this.nextUuCount = nextUuCountResult.data.totalCount;
+            this.nextUuCountString = this.nextUuCount.toString();
+            this.captureCsv();
+            console.log(this.nextTotalCaptureCount);
+            console.log(this.nextCaptureEventTerm);
+            console.log(this.nextCaptureEventActiveUser);
+            this.nextCaptureDailyCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
+            this.nextCaptureDailyCountString = this.nextCaptureDailyCount.toString();
+            this.nextCaptureActiveUserRate = Math.round(this.nextCaptureEventActiveUser / this.nextCaptureEventTutorialPlay * 100);
+            this.nextCaptureActiveUserRateString = this.nextCaptureActiveUserRate.toString();
         } else {
-            this.nextUuCount = 0;
+            this.nextUuCountString = "(NO DATA)";
+            this.captureCsv();
+        }
+    }
+
+    captureCsv(): void {
+        this.captureCsvCount --;
+        if (this.captureCsvCount == 0) {
+            document.getElementById('download_capture').style.display='block';
+            document.getElementById('loading_download_capture').style.display='none';
         }
     }
 }

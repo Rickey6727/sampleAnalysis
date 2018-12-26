@@ -42,7 +42,7 @@ public class AccountConfig implements Config {
     protected static DataSource createDataSource() {
 	      SimpleDataSource datasource = new SimpleDataSource();
 //	      datasource.setUrl("jdbc:postgresql://localhost:5432/account");
-	      datasource.setUrl("jdbc:postgresql://apollo-db001.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/account");
+	      datasource.setUrl("jdbc:postgresql://apollo-dbs001.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/account");
 	      datasource.setUser("interdev");
 	      datasource.setPassword("interdev");
 		  System.out.println("ACCOUNT");

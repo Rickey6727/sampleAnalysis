@@ -41,7 +41,7 @@ public class ManageConfig implements Config {
 
     protected static DataSource createDataSource() {
 	      SimpleDataSource datasource = new SimpleDataSource();
-	      datasource.setUrl("jdbc:postgresql://apollo-db001.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/manage");
+	      datasource.setUrl("jdbc:postgresql://apollo-dbs001.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/manage");
 	      datasource.setUser("interdev");
 	      datasource.setPassword("interdev");
 		  System.out.println("MANAGE");

@@ -42,7 +42,7 @@ public class EventConfig implements Config {
     protected static DataSource createDataSource() {
 	      SimpleDataSource datasource = new SimpleDataSource();
 //	      datasource.setUrl("jdbc:postgresql://localhost:5432/event");
-	      datasource.setUrl("jdbc:postgresql://apollo-db002.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/event");
+	      datasource.setUrl("jdbc:postgresql://apollo-dbs002.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/event");
 	      datasource.setUser("interdev");
 	      datasource.setPassword("interdev");
 		  System.out.println("EVENT");

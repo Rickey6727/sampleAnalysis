@@ -1,10 +1,10 @@
-select
+SELECT
   /*%expand*/*
-from
+FROM
   t_exchange_history
-where
-  id = /* id */1
-  and
-  exchange_id = /* exchangeId */1
-  and
-  account_id = /* accountId */1
+WHERE
+  id = /* id */'1'
+AND
+  exchange_id = /* exchangeId */'1'
+AND
+  account_id = /* accountId */'1'

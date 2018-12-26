@@ -432,7 +432,7 @@ import com.example.sample.repository.history.TLoginHistoryDao;
 		@CrossOrigin
 		public List<Integer> clothesOwnData(Integer clothesId) {
 			List<Integer> accountIds = new ArrayList<Integer>();
-			for (Integer i = 0; i < 100; i++) {
+			for (Integer i = 0; i < 3; i++) {
 				accountIds.addAll(TClothesOwnDao.selectAccountIdByClothesId(i, clothesId));
 			}
 			return accountIds;

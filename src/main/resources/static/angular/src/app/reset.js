@@ -1,0 +1,3 @@
+function reset() {
+    $('li').remove();
+}

@@ -3,6 +3,6 @@ select
 from
     t_delivery_event_state
 where
-    event_id = /*eventId*/1
+    event_id = /*eventId*/'1'
 and
-    current_point > 0
+    current_point > '0'

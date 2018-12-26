@@ -1,8 +1,8 @@
-select
-    count(distinct account_id)
-from
+SELECT
+    count(DISTINCT account_id)
+FROM
     t_login_history
-where
+WHERE
     login_date::text >= /*startDate*/'0000-00-00 00:00:00'
-and
+AND
     login_date::text < /*endDate*/'0000-00-00 00:00:00'

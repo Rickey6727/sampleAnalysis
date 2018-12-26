@@ -1,6 +1,4 @@
-/* global$ */
-
 $(function () {
-    $("img").on('error', function(){$(this).attr({src:'http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif'});
+    $("img").on('error', function(){$(this).attr({src:'https://image.freepik.com/free-vector/no-translate-detected_23-2147763346.jpg'});
       });
   });

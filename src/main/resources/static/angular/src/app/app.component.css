@@ -15,7 +15,6 @@ h1 {
     position: relative;
     border: #145fb0 0.5px solid;
     padding-top: 10px;
-    background-color: #D9E5FF;
     margin: 24px auto 0 auto;
     height: 100px;
 }
@@ -30,7 +29,6 @@ h1 {
     bottom: 10px;
     background-color: #145fb0;
     text-align: center;
-    color: white;
     font-weight: bold;
 }
 

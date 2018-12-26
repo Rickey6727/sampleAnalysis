@@ -11,48 +11,64 @@ import {DataService} from "../../../services/data.service";
 export class DeliveryDashboardComponent implements OnInit{ 
     inputDeliveryEventId = "入力してね";
 
-    captureEventStartDate = "0";
-    captureEventEndDate = "0";
-    captureEventTurtorialId = "0";
+    img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+
+    captureEventStartDate = "loading...";
+    captureEventEndDate = "loading...";
+    captureEventTurtorialId = "loading...";
     captureEventTutorialPlay = 0;
     captureEventId = 0;
     nextCaptureEventId = 0;
-    coinCampaign1 = "0";
-    coinCampaign2 = "0";
-    coinCampaign3 = "0";
-    coinCampaign4 = "0";
-    coinCampaign5 = "0";
-    coinCampaign6 = "0";
-    coinCampaign7 = "0";
-    coinCampaign8 = "0";
+    captureEventTutorialPlayString = "loading...";
+    captureEventIdString = "loading...";
+    nextCaptureEventIdString = "loading...";
+    coinCampaign1 = "loading...";
+    coinCampaign2 = "loading...";
+    coinCampaign3 = "loading...";
+    coinCampaign4 = "loading...";
+    coinCampaign5 = "loading...";
+    coinCampaign6 = "loading...";
+    coinCampaign7 = "loading...";
+    coinCampaign8 = "loading...";
     captureEventActiveUser = 0;
     captureEventTerm = 0;
     totalDeliveryCount = 0;
     uuCount = 0;
+    captureEventActiveUserString = "loading...";
+    captureEventTermString = "loading...";
+    totalDeliveryCountString = "loading...";
+    uuCountString = "loading...";
     deliveryDailyCount = 0;
-    deliveryDailyCountString = "0";
+    deliveryDailyCountString = "loading...";
     deliveryTermCount = 0;
     nextDeliveryTermCount = 0;
 
-    nextCaptureEventIdString =  "0";
-    nextCaptureEventStartDate = "0";
-    nextCaptureEventEndDate = "0";
-    nextCaptureEventTurtorialId = "0";
+    deliveryTermCountString = "loading...";
+    nextDeliveryTermCountString = "loading...";
+
+    nextCaptureEventStartDate = "loading...";
+    nextCaptureEventEndDate = "loading...";
+    nextCaptureEventTurtorialId = "loading...";
     nextCaptureEventActiveUser = 0;
     nextCaptureEventTerm = 0;
     nextTotalDeliveryCount = 0;
     nextCaptureEventTutorialPlay = 0;
-    nextCoinCampaign1 = "0";
-    nextCoinCampaign2 = "0";
-    nextCoinCampaign3 = "0";
-    nextCoinCampaign4 = "0";
-    nextCoinCampaign5 = "0";
-    nextCoinCampaign6 = "0";
-    nextCoinCampaign7 = "0";
-    nextCoinCampaign8 = "0";
+    nextCaptureEventActiveUserString = "loading...";
+    nextCaptureEventTermString = "loading...";
+    nextTotalDeliveryCountString = "loading...";
+    nextCaptureEventTutorialPlayString = "loading...";
+    nextCoinCampaign1 = "loading...";
+    nextCoinCampaign2 = "loading...";
+    nextCoinCampaign3 = "loading...";
+    nextCoinCampaign4 = "loading...";
+    nextCoinCampaign5 = "loading...";
+    nextCoinCampaign6 = "loading...";
+    nextCoinCampaign7 = "loading...";
+    nextCoinCampaign8 = "loading...";
     nextUuCount = 0;
+    nextUuCountString = "loading...";
     nextDeliveryDailyCount = 0;
-    nextDeliveryDailyCountString = "0";
+    nextDeliveryDailyCountString = "loading...";
 
     product1 = "com.unitedfun.android.cocoppaplay.003";
     product2 = "com.unitedfun.android.cocoppaplay.004";
@@ -62,6 +78,18 @@ export class DeliveryDashboardComponent implements OnInit{
     product6 = "com.unitedfun.cocoppaplay.004";
     product7 = "com.unitedfun.cocoppaplay.005";
     product8 = "com.unitedfun.cocoppaplay.006";
+
+    captureActiveUserRate = 0;
+    captureNonActiveUser = 0;
+    nextCaptureActiveUserRate = 0;
+    nextCaptureNonActiveUser = 0;
+
+    captureActiveUserRateString = "loading...";
+    captureNonActiveUserString = "loading...";
+    nextCaptureActiveUserRateString = "loading...";
+    nextCaptureNonActiveUserString = "loading...";
+
+    deliveryCsvCount = 1;
 
 
     constructor(private dataService: DataService){}
@@ -73,48 +101,49 @@ export class DeliveryDashboardComponent implements OnInit{
 
     OnDeliveryEventButtonClick(): void {
 
-        this.captureEventStartDate = "0";
-        this.captureEventEndDate = "0";
-        this.captureEventTurtorialId = "0";
-        this.captureEventTutorialPlay = 0;
-        this.captureEventId = 0;
-        this.nextCaptureEventId = 0;
-        this.coinCampaign1 = "0";
-        this.coinCampaign2 = "0";
-        this.coinCampaign3 = "0";
-        this.coinCampaign4 = "0";
-        this.coinCampaign5 = "0";
-        this.coinCampaign6 = "0";
-        this.coinCampaign7 = "0";
-        this.coinCampaign8 = "0";
-        this.captureEventActiveUser = 0;
-        this.captureEventTerm = 0;
+        this.captureEventStartDate = "loading...";
+        this.captureEventEndDate = "loading...";
+        this.captureEventTurtorialId = "loading...";
+        this.captureEventTutorialPlayString = "loading...";
+        this.captureEventIdString = "loading...";
+        this.nextCaptureEventIdString = "loading...";
+        this.coinCampaign1 = "loading...";
+        this.coinCampaign2 = "loading...";
+        this.coinCampaign3 = "loading...";
+        this.coinCampaign4 = "loading...";
+        this.coinCampaign5 = "loading...";
+        this.coinCampaign6 = "loading...";
+        this.coinCampaign7 = "loading...";
+        this.coinCampaign8 = "loading...";
+        this.captureEventActiveUserString = "loading...";
+        this.captureEventTermString = "loading...";
         this.totalDeliveryCount = 0;
-        this.uuCount = 0;
+        this.uuCountString = "loading...";
         this.deliveryDailyCount = 0;
-        this.deliveryDailyCountString = "0";
+        this.deliveryDailyCountString = "loading...";
         this.deliveryTermCount = 0;
         this.nextDeliveryTermCount = 0;
 
-        this.nextCaptureEventIdString =  "0";
-        this.nextCaptureEventStartDate = "0";
-        this.nextCaptureEventEndDate = "0";
-        this.nextCaptureEventTurtorialId = "0";
-        this.nextCaptureEventActiveUser = 0;
-        this.nextCaptureEventTerm = 0;
+        this.nextCaptureEventIdString =  "loading...";
+        this.nextCaptureEventStartDate = "loading...";
+        this.nextCaptureEventEndDate = "loading...";
+        this.nextCaptureEventTurtorialId = "loading...";
+        this.nextCaptureEventActiveUserString = "loading...";
+        this.nextCaptureEventTermString = "loading...";
         this.nextTotalDeliveryCount = 0;
-        this.nextCaptureEventTutorialPlay = 0;
-        this.nextCoinCampaign1 = "0";
-        this.nextCoinCampaign2 = "0";
-        this.nextCoinCampaign3 = "0";
-        this.nextCoinCampaign4 = "0";
-        this.nextCoinCampaign5 = "0";
-        this.nextCoinCampaign6 = "0";
-        this.nextCoinCampaign7 = "0";
-        this.nextCoinCampaign8 = "0";
-        this.nextUuCount = 0;
+        this.nextCaptureEventTutorialPlayString = "loading...";
+        this.nextCoinCampaign1 = "loading...";
+        this.nextCoinCampaign2 = "loading...";
+        this.nextCoinCampaign3 = "loading...";
+        this.nextCoinCampaign4 = "loading...";
+        this.nextCoinCampaign5 = "loading...";
+        this.nextCoinCampaign6 = "loading...";
+        this.nextCoinCampaign7 = "loading...";
+        this.nextCoinCampaign8 = "loading...";
+        this.nextUuCountString = "loading...";
         this.nextDeliveryDailyCount = 0;
-        this.nextDeliveryDailyCountString = "0";
+        this.nextDeliveryDailyCountString = "loading...";
+        this.deliveryCsvCount = 1;
 
         this.dataService.deliveryEventData(this.inputDeliveryEventId).subscribe(
             captureEventDataResult => this.setCaptureEventData(captureEventDataResult),
@@ -139,9 +168,12 @@ export class DeliveryDashboardComponent implements OnInit{
         if (captureEventDataResult.data) {
             const captureEventIdString = captureEventDataResult.data.eventId;
             this.captureEventId = parseInt(captureEventIdString);
+            this.captureEventIdString = this.captureEventId.toString();
             this.captureEventStartDate = captureEventDataResult.data.startDate;
             this.captureEventEndDate = captureEventDataResult.data.endDate;
             this.captureEventTurtorialId = captureEventDataResult.data.startTutorialId;
+
+            this.img_src = "http://www.cocoppaplay.com/image1/ui/update/" + this.captureEventStartDate.slice(0,4) + "/" + this.captureEventStartDate.slice(5,7) + "/" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_banner/ja/bnrL_" + this.captureEventStartDate.slice(2,4) + this.captureEventStartDate.slice(5,7) + this.captureEventStartDate.slice(8,10) + "_deliveryEV.png";
             this.dataService.tutorialPlayData(this.captureEventTurtorialId).subscribe(
                 tutorialPlayResult => this.setTutorialPlayData(tutorialPlayResult),
                 error => alert('通信エラー' + error)
@@ -206,10 +238,10 @@ export class DeliveryDashboardComponent implements OnInit{
                 error => alert('通信エラー' + error)
             );
         } else {
-            this.captureEventId = 0;
-            this.captureEventStartDate = "0";
-            this.captureEventEndDate = "0";
-            this.captureEventTurtorialId = "0";
+            this.captureEventIdString = "(NO DATA)";
+            this.captureEventStartDate = "(NO DATA)";
+            this.captureEventEndDate = "(NO DATA)";
+            this.captureEventTurtorialId = "(NO DATA)";
         }
     }
 
@@ -219,8 +251,13 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (tutorialPlayResult.data.totalCount) {
             this.captureEventTutorialPlay = tutorialPlayResult.data.totalCount;
+            this.captureEventTutorialPlayString = this.captureEventTutorialPlay.toString();
+            this.captureNonActiveUser = this.captureEventActiveUser - this.captureEventTutorialPlay;
+            this.captureNonActiveUserString = this.captureNonActiveUser.toString();
+            this.captureActiveUserRate = Math.round(this.captureEventActiveUser / this.captureEventTutorialPlay * 100);
+            this.captureActiveUserRateString = this.captureActiveUserRate.toString();
         } else {
-            this.captureEventTutorialPlay = 0;
+            this.captureEventTutorialPlayString = "(NO DATA)";
         }
     }
 
@@ -231,7 +268,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign1 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign1 = "0";
+            this.coinCampaign1 = "(NO DATA)";
         }
     }
 
@@ -242,7 +279,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign2 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign2 = "0";
+            this.coinCampaign2 = "(NO DATA)";
         }
     }
 
@@ -253,7 +290,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign3 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign3 = "0";
+            this.coinCampaign3 = "(NO DATA)";
         }
     }
 
@@ -264,7 +301,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign4 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign4 = "0";
+            this.coinCampaign4 = "(NO DATA)";
         }
     }
 
@@ -275,7 +312,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign5 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign5 = "0";
+            this.coinCampaign5 = "(NO DATA)";
         }
     }
 
@@ -286,7 +323,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign6 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign6 = "0";
+            this.coinCampaign6 = "(NO DATA)";
         }
     }
 
@@ -297,7 +334,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign7 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign7 = "0";
+            this.coinCampaign7 = "(NO DATA)";
         }
     }
 
@@ -309,7 +346,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (coinCampaignResult.data) {
             this.coinCampaign8 = coinCampaignResult.data.totalCount;
         } else {
-            this.coinCampaign8 = "0";
+            this.coinCampaign8 = "(NO DATA)";
         }
     }
 
@@ -320,8 +357,9 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (captureEventActiveUserDataResult.data) {
             this.captureEventActiveUser = captureEventActiveUserDataResult.data.totalCount;
+            this.captureEventActiveUserString = this.captureEventActiveUser.toString();
         } else {
-            this.captureEventActiveUser = 0;
+            this.captureEventActiveUserString = "(NO DATA)";
         }
     }
 
@@ -332,8 +370,12 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (captureEventTermDataResult.data) {
             this.captureEventTerm = captureEventTermDataResult.data.term;
+            this.captureEventTermString = this.captureEventTerm.toString();
+            this.deliveryTermCount = Math.round(this.totalDeliveryCount / this.captureEventTerm);
+            this.deliveryTermCountString = this.deliveryTermCount.toString();
+            this.deliveryDailyCount = Math.round(this.totalDeliveryCount / this.captureEventTerm / this.captureEventActiveUser);
         } else {
-            this.captureEventTerm = 0;
+            this.captureEventTermString = "(NO DATA)";
         }
     }
 
@@ -344,11 +386,13 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (deliveryCountDataResult.data) {
             this.totalDeliveryCount = deliveryCountDataResult.data.totalDeliveryCount;
+            this.totalDeliveryCountString = this.totalDeliveryCount.toString();
             this.deliveryTermCount = Math.round(this.totalDeliveryCount / this.captureEventTerm);
+            this.deliveryTermCountString = this.deliveryTermCount.toString();
             this.deliveryDailyCount = Math.round(this.totalDeliveryCount / this.captureEventTerm / this.captureEventActiveUser);
             this.deliveryDailyCountString = this.deliveryDailyCount.toString();
         } else {
-            this.totalDeliveryCount = 0;
+            this.totalDeliveryCountString = "(NO DATA)";
         }
     }
 
@@ -359,8 +403,11 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (uuCountResult.data) {
             this.uuCount = uuCountResult.data.totalCount;
+            this.uuCountString = this.uuCount.toString();
+            this.deliveryDailyCount = Math.round(this.totalDeliveryCount / this.captureEventTerm / this.captureEventActiveUser);
+            this.deliveryDailyCountString = this.deliveryDailyCount.toString();
         } else {
-            this.uuCount = 0;
+            this.uuCountString = "(NO DATA)";
         }
     }
 
@@ -414,10 +461,10 @@ export class DeliveryDashboardComponent implements OnInit{
                 error => alert('通信エラー' + error)
             );
         } else {
-            this.nextCaptureEventId = 0;
-            this.nextCaptureEventStartDate = "0";
-            this.nextCaptureEventEndDate = "0";
-            this.nextCaptureEventTurtorialId = "0";
+            this.nextCaptureEventIdString = "(NO DATA)";
+            this.nextCaptureEventStartDate = "(NO DATA)";
+            this.nextCaptureEventEndDate = "(NO DATA)";
+            this.nextCaptureEventTurtorialId = "(NO DATA)";
         }
     }
 
@@ -428,8 +475,9 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (nextCaptureEventActiveUserDataResult.data) {
             this.nextCaptureEventActiveUser = nextCaptureEventActiveUserDataResult.data.totalCount;
+            this.nextCaptureEventActiveUserString = this.nextCaptureEventActiveUser.toString();
         } else {
-            this.nextCaptureEventActiveUser = 0;
+            this.nextCaptureEventActiveUserString = "(NO DATA)";
         }
     }
 
@@ -440,8 +488,13 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (nextCaptureEventTermDataResult.data) {
             this.nextCaptureEventTerm = nextCaptureEventTermDataResult.data.term;
+            this.nextCaptureEventTermString = this.nextCaptureEventTerm.toString();
+            this.nextDeliveryTermCount = Math.round(this.nextTotalDeliveryCount / this.nextCaptureEventTerm);
+            this.nextDeliveryTermCountString = this.nextDeliveryTermCount.toString();
+            this.nextDeliveryDailyCount = Math.round(this.nextTotalDeliveryCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
+            this.nextDeliveryDailyCountString = this.nextDeliveryDailyCount.toString();
         } else {
-            this.nextCaptureEventTerm = 0;
+            this.nextCaptureEventTermString = "(NO DATA)";
         }
     }
 
@@ -452,7 +505,9 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (nextCaptureCountDataResult.data) {
             this.nextTotalDeliveryCount = nextCaptureCountDataResult.data.totalDeliveryCount;
+            this.nextTotalDeliveryCountString = this.nextTotalDeliveryCount.toString();
             this.nextDeliveryTermCount = Math.round(this.nextTotalDeliveryCount / this.nextCaptureEventTerm);
+            this.nextDeliveryTermCountString = this.nextDeliveryTermCount.toString();
             this.nextDeliveryDailyCount = Math.round(this.nextTotalDeliveryCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
             this.nextDeliveryDailyCountString = this.nextDeliveryDailyCount.toString();
         } else {
@@ -466,8 +521,13 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (nextTutorialPlayResult.data.totalCount) {
             this.nextCaptureEventTutorialPlay = nextTutorialPlayResult.data.totalCount;
+            this.nextCaptureEventTutorialPlayString = this.nextCaptureEventTutorialPlay.toString();
+            this.nextCaptureNonActiveUser = this.nextCaptureEventActiveUser - this.nextCaptureEventTutorialPlay;
+            this.nextCaptureNonActiveUserString = this.nextCaptureNonActiveUser.toString();
+            this.nextCaptureActiveUserRate = Math.round(this.nextCaptureEventActiveUser / this.nextCaptureEventTutorialPlay * 100);
+            this.nextCaptureActiveUserRateString = this.nextCaptureActiveUserRate.toString();
         } else {
-            this.nextCaptureEventTutorialPlay = 0;
+            this.nextCaptureEventTutorialPlayString = "(NO DATA)";
         }
     }
 
@@ -478,7 +538,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign1 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign1 = "0";
+            this.nextCoinCampaign1 = "(NO DATA)";
         }
     }
 
@@ -489,7 +549,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign2 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign2 = "0";
+            this.nextCoinCampaign2 = "(NO DATA)";
         }
     }
 
@@ -500,7 +560,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign3 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign3 = "0";
+            this.nextCoinCampaign3 = "(NO DATA)";
         }
     }
 
@@ -511,7 +571,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign4 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign4 = "0";
+            this.nextCoinCampaign4 = "(NO DATA)";
         }
     }
 
@@ -522,7 +582,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign5 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign5 = "0";
+            this.nextCoinCampaign5 = "(NO DATA)";
         }
     }
 
@@ -533,7 +593,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign6 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign6 = "0";
+            this.nextCoinCampaign6 = "(NO DATA)";
         }
     }
 
@@ -544,7 +604,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign7 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign7 = "0";
+            this.nextCoinCampaign7 = "(NO DATA)";
         }
     }
 
@@ -556,7 +616,7 @@ export class DeliveryDashboardComponent implements OnInit{
         if (nextCoinCampaignResult.data) {
             this.nextCoinCampaign8 = nextCoinCampaignResult.data.totalCount;
         } else {
-            this.nextCoinCampaign8 = "0";
+            this.nextCoinCampaign8 = "(NO DATA)";
         }
     }
 
@@ -567,12 +627,21 @@ export class DeliveryDashboardComponent implements OnInit{
         }
         if (nextUuCountResult.data) {
             this.nextUuCount = nextUuCountResult.data.totalCount;
+            this.nextUuCountString = this.nextUuCount.toString();
+            this.deliveryCsv();
+            this.nextDeliveryDailyCount = Math.round(this.nextTotalDeliveryCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
+            this.nextDeliveryDailyCountString = this.nextDeliveryDailyCount.toString();
         } else {
-            this.nextUuCount = 0;
+            this.nextUuCountString = "(NO DATA)";
+            this.deliveryCsv();
         }
     }
 
-    csv(): void {
-        document.getElementById('#csv').style.display='block';
+    deliveryCsv(): void {
+        this.deliveryCsvCount --;
+        if (this.deliveryCsvCount == 0) {
+            document.getElementById('download_delivery').style.display='block';
+            document.getElementById('loading_download_delivery').style.display='none';
+        }
     }
 }

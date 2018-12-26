@@ -22,32 +22,36 @@
     </div>
     <div class="col-sm-2 col-xs-0"></div>
 </div>
-
 <div id="search_result" class="search_result" style="display: none;" id="submit_clothes">
     <div class="search_result_title">
         <h3>検索結果</h3>
     </div> 
     <div id="data_list" class="data_list clothes_table">
-        <table class="table">
+        <table class="table" id="csv_clothes" border="1" rules="all">
             <thead>
                 <tr>
-                    <td>所有者数</td>
                     <td>所有者一覧</td>
+                    <td>所有者数合計</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{clothesOwners}}人</td>
                     <td>
+                        <!-- <input class="reset" type="button" value="検索結果をリセット" id="reset_clothes_owners" style="display: none;" onclick="reset()" /> -->
                         <ul id="list">
+                            <img src="http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif" width="20" height="20" id="loading_clothes_owners" style="display: block;">
                         </ul>
                     </td>
+                    <td>{{clothesOwnersString}}人</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <!-- <div  class="csv">
-        <b>衣装所有者検索結果の書き出しはコチラ → <a id="csv_clothes_download" href="#" download="clothes_owners_{{inputClothesId}}.csv" onclick="handleDownloadClothes()"><img src="./app/csv.png"></a></b>
-    </div> -->
+    <div class="csv" id="download_clothes" style="display: none;">
+        <b>アイテム所有者リスト書き出しはコチラ → <a id="csv_clothes_download" href="#" download="clothes_owners_{{inputClothesId}}.csv" onclick="handleDownloadClothes()"><img src="./app/csv.png"></a></b><!-- download="clothes_owners_{{inputClothesId}}.csv" onclick="handleDownloadClothes()"-->
+    </div>
+    <div class="csv" id="loading_download_clothes" style="display: block;">
+        <b>アイテム所有者リスト書き出し準備中 → <img src="http://icon-park.com/imagefiles/loading7_orange.gif" width="48" height="48"></b>
+    </div>
 </div>
     

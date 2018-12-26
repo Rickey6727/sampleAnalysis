@@ -1,1 +1,1 @@
-select count(*) from t_gacha_history where item_category = 1 and gacha_id = /* gachaId */1 and create_time::text >= /* selectStartDate */'0000-00-00 00:00:00.000' and create_time::text <= /* selectEndDate */'0000-00-00 00:00:00.000'
+select count(*) from t_gacha_history where item_category = 1 and gacha_id = /* gachaId */'1' and create_time::text >= /* selectStartDate */'0000-00-00 00:00:00.000' and create_time::text <= /* selectEndDate */'0000-00-00 00:00:00.000'

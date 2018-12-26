@@ -7,16 +7,16 @@
         <div class="col-sm-2 col-xs-6 search_form_title">イベントID(前半)</div>
         <div class="col-sm-4 col-xs-6">
             <select class="select_form" id="inputDeliveryEventId select_form_delivery" name="inputDeliveryEventId" type="text" [(ngModel)]="inputDeliveryEventId" onchange="selectChangeDelivery();">
-                <option>181</option>
-                <option>185</option>
-                <option>196</option>
-                <option>203</option>
-                <option>222</option>
-                <option>230</option>
-                <option>239</option>
-                <option>246</option>
-                <option>253</option>
-                <option>260</option>
+                <option value="181">181 (17/11/09 ~ 17/11/17)</option>
+                <option value="185">185 (17/12/10 ~ 17/12/18)</option>
+                <option value="196">196 (18/01/10 ~ 18/01/18)</option>
+                <option value="203">203 (18/02/09 ~ 18/02/15)</option>
+                <option value="222">222 (18/05/10 ~ 18/05/18)</option>
+                <option value="230">230 (18/06/08 ~ 18/06/17)</option>
+                <option value="239">239 (18/07/10 ~ 18/07/18)</option>
+                <option value="246">246 (18/08/10 ~ 18/08/18)</option>
+                <option value="253">253 (18/09/09 ~ 18/09/17)</option>
+                <option value="260">260 (18/10/10 ~ 18/10/18)</option>
             </select>
         </div>
         <div class="col-sm-5 col-xs-0"></div>
@@ -33,7 +33,7 @@
         <h3>検索結果</h3>
     </div> 
     <div class="event_img">
-        <img src="http://54.200.220.138/image1/ui/update/{{captureEventStartDate |slice:0:4}}/{{captureEventStartDate |slice:5:7}}/{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_banner/ja/bnrL_{{captureEventStartDate |slice:2:4}}{{captureEventStartDate |slice:5:7}}{{captureEventStartDate |slice:8:10}}_deliveryEV.png">
+        <img src="{{img_src}}">
     </div>
     <div id="data_list" class="data_list">
         <table class="table" id="csv_delivery" border="1" rules="all">
@@ -70,17 +70,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{captureEventId}}</td>
+                    <td>{{captureEventIdString}}</td>
                     <td>{{captureEventStartDate}} ~ {{captureEventEndDate}}</td>
-                    <td>{{captureEventTerm}}日間</td>
-                    <td>{{captureEventTutorialPlay}}人</td>
-                    <td>{{captureEventActiveUser}}人</td>
-                    <td>-{{captureEventTutorialPlay - captureEventActiveUser}}人</td>
-                    <td>{{captureEventActiveUser / captureEventTutorialPlay * 100 |number:0}}%</td>
-                    <td>{{uuCount}}人</td>
-                    <td>{{totalDeliveryCount}}体</td>
-                    <td>{{deliveryTermCount}}体</td>
-                    <td>{{deliveryDailyCountString}}体</td>
+                    <td>{{captureEventTermString}}日間</td>
+                    <td>{{captureEventTutorialPlayString}}人</td>
+                    <td>{{captureEventActiveUserString}}人</td>
+                    <td>{{captureNonActiveUserString}}人</td>
+                    <td>{{captureActiveUserRateString}}%</td>
+                    <td>{{uuCountString}}人</td>
+                    <td>{{totalDeliveryCountString}}pt</td>
+                    <td>{{deliveryTermCountString}}pt</td>
+                    <td>{{deliveryDailyCountString}}pt</td>
                     <td>88coin</td>
                     <td>{{coinCampaign1}}件</td>
                     <td>196coin</td>
@@ -99,17 +99,17 @@
                     <td>{{coinCampaign8}}件</td>
                 </tr>
                 <tr>
-                    <td>{{captureEventId + 1}}</td>
+                    <td>{{nextCaptureEventIdString}}</td>
                     <td>{{nextCaptureEventStartDate}} ~ {{nextCaptureEventEndDate}}</td>
-                    <td>{{nextCaptureEventTerm}}日間</td>
-                    <td>{{nextCaptureEventTutorialPlay}}人</td>
-                    <td>{{nextCaptureEventActiveUser}}人</td>
-                    <td>-{{nextCaptureEventTutorialPlay - nextCaptureEventActiveUser}}人</td>
-                    <td>{{nextCaptureEventActiveUser / nextCaptureEventTutorialPlay * 100 |number:0}}%</td>
-                    <td>{{nextUuCount}}人</td>
-                    <td>{{nextTotalDeliveryCount}}体</td>
-                    <td>{{nextDeliveryTermCount}}体</td>
-                    <td>{{nextDeliveryDailyCountString}}体</td>
+                    <td>{{nextCaptureEventTermString}}日間</td>
+                    <td>{{nextCaptureEventTutorialPlayString}}人</td>
+                    <td>{{nextCaptureEventActiveUserString}}人</td>
+                    <td>{{nextCaptureNonActiveUserString}}人</td>
+                    <td>{{nextCaptureActiveUserRateString}}%</td>
+                    <td>{{nextUuCountString}}人</td>
+                    <td>{{nextTotalDeliveryCountString}}pt</td>
+                    <td>{{nextDeliveryTermCountString}}pt</td>
+                    <td>{{nextDeliveryDailyCountString}}pt</td>
                     <td>88coin</td>
                     <td>{{nextCoinCampaign1}}件</td>
                     <td>196coin</td>
@@ -130,13 +130,10 @@
             </tbody>
         </table>
     </div>
-    <!-- <div class="csv" style="display: none;" id="csv"> -->
-    <div class="csv">
-        <b>納品イベント集計書き出しはコチラ → <a id="csv_delivery_download" href="#" download="delivery_analysis_{{captureEventId}}.csv" onclick="handleDownloadDelivery()"><img src="./app/csv.png"></a></b>
+    <div class="csv" id="download_delivery" style="display: none;">
+        <b>納品イベント集計書き出しはコチラ → <a id="csv_delivery_download" href="#" download="delivery_analysis_{{captureEventId}}.csv" onclick="handleDownloadDelivery()"><img src="./app/csv.png"></a></b><!-- download="delivery_analysis_{{captureEventId}}.csv" onclick="handleDownloadDelivery()"-->
     </div>
-    <script>
-        if (this.captureEventTerm != 0) {
-            $("#csv").fadeIn(400);
-        }
-    </script>
+    <div class="csv" id="loading_download_delivery" style="display: block;">
+        <b>納品イベント集計書き出し準備中 → <img src="http://icon-park.com/imagefiles/loading7_orange.gif" width="48" height="48"></b>
+    </div>
 </div>

@@ -28,7 +28,8 @@
         <h3>検索結果</h3>
     </div> 
     <div class="gacha_img">
-        <img src="{{bannerImageUrl}}">    </div>
+        <img src="{{img_src}}">
+    </div>
     <div id="data_list" class="data_list">
         <table class="table" id="csv_gacha" border="1" rules="all">
             <thead>
@@ -95,63 +96,66 @@
                     <td>{{gachaId}}</td>
                     <td>{{gachaTitle}}</td>
                     <td>{{salesStartDate}} ~ {{salesEndDate}}</td>
-                    <td>{{totalCount}}回</td>
-                    <td>{{threeDaysCount}}回</td>
-                    <td>{{freeTotalCount}}回</td> <!--チケットor、無料-->
-                    <td>{{freeThreeDaysCount}}回</td>
-                    <td>{{freeTotalCount - allFreeTotalCount}}回</td> <!--チケットのみ-->
-                    <td>{{totalCount - freeTotalCount}}回</td> <!--コインのみ-->
-                    <td>{{freeTotalCount / totalCount * 100 |number:0}}%</td>
-                    <td>{{(freeTotalCount - allFreeTotalCount) / totalCount * 100 |number:0}}%</td>
-                    <td>{{allFreeTotalCount / totalCount * 100 |number:0}}%</td>
-                    <td>{{(totalCount - freeTotalCount) / totalCount * 100 |number:0}}%</td>
-                    <td>{{TenTwo}}回</td>
-                    <td>{{tenTwoThreeDaysCount}}回</td>
-                    <td>{{allFreeTotalCount}}回</td> <!--無料のみ-->
-                    <td>{{allFreeThreeDaysCount}}回</td>
-                    <td>{{stepCount}}回</td>
-                    <td>{{stepCountThreeDaysCount}}回</td>
-                    <td>{{kaburazu1Count + kaburazu2Count + kaburazu3Count}}回</td>
-                    <td>{{kaburazu1Count}}回</td>
+                    <td>{{totalCountString}}回</td>
+                    <td>{{threeDaysCountString}}回</td>
+                    <td>{{freeTotalCountString}}回</td> <!--チケットor、無料-->
+                    <td>{{freeThreeDaysCountString}}回</td>
+                    <td>{{onlyTicketCountString}}回</td> <!--チケットのみ--><!--freeTotalCount - allFreeTotalCount-->
+                    <td>{{onlyCoinCountString}}回</td> <!--コインのみ--><!--totalCount - freeTotalCount-->
+                    <td>{{freeTotalCountRateString}}%</td><!--freeTotalCount / totalCount * 100 |number:0-->
+                    <td>{{onlyTicketCountRateString}}%</td><!--(freeTotalCount - allFreeTotalCount) / totalCount * 100 |number:0-->
+                    <td>{{allFreeTotalCountRateString}}%</td><!--allFreeTotalCount / totalCount * 100 |number:0-->
+                    <td>{{onlyCoinCountRateString}}%</td><!--(totalCount - freeTotalCount) / totalCount * 100 |number:0-->
+                    <td>{{TenTwoString}}回</td>
+                    <td>{{tenTwoThreeDaysCountString}}回</td>
+                    <td>{{allFreeTotalCountString}}回</td> <!--無料のみ-->
+                    <td>{{allFreeThreeDaysCountString}}回</td>
+                    <td>{{stepCountString}}回</td>
+                    <td>{{stepCountThreeDaysCountString}}回</td>
+                    <td>{{totalKaburazuCountString}}回</td><!--kaburazu1Count + kaburazu2Count + kaburazu3Count-->
+                    <td>{{kaburazu1CountString}}回</td>
                     <td>{{kaburazu1}}</td>
-                    <td>{{kaburazu2Count}}回</td>
+                    <td>{{kaburazu2CountString}}回</td>
                     <td>{{kaburazu2}}</td>
-                    <td>{{kaburazu3Count}}回</td>
+                    <td>{{kaburazu3CountString}}回</td>
                     <td>{{kaburazu3}}</td>
-                    <td>{{playKaisu1Count + playKaisu2Count + playKaisu3Count + playKaisu4Count + playKaisu5Count + playKaisu6Count + playKaisu7Count + playKaisu8Count + playKaisu9Count + playKaisu10Count + playKaisu11Count + playKaisu12Count + playKaisu13Count + playKaisu14Count}}回</td>
-                    <td>{{playKaisu1Count}}回</td>
+                    <td>{{totalPlayKaisuCountString}}回</td><!--playKaisu1Count + playKaisu2Count + playKaisu3Count + playKaisu4Count + playKaisu5Count + playKaisu6Count + playKaisu7Count + playKaisu8Count + playKaisu9Count + playKaisu10Count + playKaisu11Count + playKaisu12Count + playKaisu13Count + playKaisu14Count-->
+                    <td>{{playKaisu1CountString}}回</td>
                     <td>{{playKaisu1}}</td>
-                    <td>{{playKaisu2Count}}回</td>
+                    <td>{{playKaisu2CountString}}回</td>
                     <td>{{playKaisu2}}</td>
-                    <td>{{playKaisu3Count}}回</td>
+                    <td>{{playKaisu3CountString}}回</td>
                     <td>{{playKaisu3}}</td>
-                    <td>{{playKaisu4Count}}回</td>
+                    <td>{{playKaisu4CountString}}回</td>
                     <td>{{playKaisu4}}</td>
-                    <td>{{playKaisu5Count}}回</td>
+                    <td>{{playKaisu5CountString}}回</td>
                     <td>{{playKaisu5}}</td>
-                    <td>{{playKaisu6Count}}回</td>
+                    <td>{{playKaisu6CountString}}回</td>
                     <td>{{playKaisu6}}</td>
-                    <td>{{playKaisu7Count}}回</td>
+                    <td>{{playKaisu7CountString}}回</td>
                     <td>{{playKaisu7}}</td>
-                    <td>{{playKaisu8Count}}回</td>
+                    <td>{{playKaisu8CountString}}回</td>
                     <td>{{playKaisu8}}</td>
-                    <td>{{playKaisu9Count}}回</td>
+                    <td>{{playKaisu9CountString}}回</td>
                     <td>{{playKaisu9}}</td>
-                    <td>{{playKaisu10Count}}回</td>
+                    <td>{{playKaisu10CountString}}回</td>
                     <td>{{playKaisu10}}</td>
-                    <td>{{playKaisu11Count}}回</td>
+                    <td>{{playKaisu11CountString}}回</td>
                     <td>{{playKaisu11}}</td>
-                    <td>{{playKaisu12Count}}回</td>
+                    <td>{{playKaisu12CountString}}回</td>
                     <td>{{playKaisu12}}</td>
-                    <td>{{playKaisu13Count}}回</td>
+                    <td>{{playKaisu13CountString}}回</td>
                     <td>{{playKaisu13}}</td>
-                    <td>{{playKaisu14Count}}回</td>
+                    <td>{{playKaisu14CountString}}回</td>
                     <td>{{playKaisu14}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div  class="csv">
+    <div  class="csv" id="download_gacha" style="display: none;">
         <b>ガチャ集計書き出しはコチラ → <a id="csv_gacha_download" href="#" download="gacha_analysis_{{gachaId}}.csv" onclick="handleDownloadGacha()"><img src="./app/csv.png"></a></b>
+    </div>
+    <div  class="csv" id="loading_download_gacha" style="display: block;">
+        <b>ガチャ集計書き出し準備中 → <img src="http://icon-park.com/imagefiles/loading7_orange.gif" width="48" height="48"></b>
     </div>
 </div>

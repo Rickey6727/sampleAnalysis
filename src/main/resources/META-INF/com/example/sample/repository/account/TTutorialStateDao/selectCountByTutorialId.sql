@@ -1,8 +1,8 @@
-select
+SELECT
     count(*)
-from
+FROM
     t_tutorial_state
-where
-    tutorial_id = /*tutorialId*/1
-and
-    complete_flg = 1
+WHERE
+    tutorial_id = /*tutorialId*/'1'
+AND
+    complete_flg = '1'

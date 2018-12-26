@@ -1,8 +1,8 @@
-select
+SELECT
   /*%expand*/*
-from
+FROM
   t_tutorial_state
-where
-  account_id = /* accountId */1
-  and
-  tutorial_id = /* tutorialId */1
+WHERE
+  account_id = /* accountId */'1'
+AND
+  tutorial_id = /* tutorialId */'1'

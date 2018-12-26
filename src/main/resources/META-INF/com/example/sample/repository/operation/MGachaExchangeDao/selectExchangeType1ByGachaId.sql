@@ -3,6 +3,6 @@ select
 from
     m_gacha_exchange
 where
-    gacha_id = /*gachaId*/1
+    gacha_id = /*gachaId*/'1'
 and
     exchange_type = 1

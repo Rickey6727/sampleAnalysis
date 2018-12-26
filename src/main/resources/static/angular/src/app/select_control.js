@@ -61,7 +61,9 @@ function submitGacha() {
 }
 
 function submitClothes() {
+    $('li').remove();
     $("#submit_clothes").fadeIn(400);
+    document.getElementById("loading_clothes_owners").style.display="block";
 }
 
 

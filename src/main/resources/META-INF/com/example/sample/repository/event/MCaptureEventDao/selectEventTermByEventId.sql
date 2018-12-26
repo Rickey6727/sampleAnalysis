@@ -1,6 +1,6 @@
-select
-    extract(epoch from (cast(end_date as timestamp) - cast(start_date as timestamp))) / (60 * 60 * 24) as term
-from
+SELECT
+    extract(epoch FROM (CAST(end_date AS timestamp) - CAST(start_date AS timestamp))) / (60 * 60 * 24) as term
+FROM
     m_capture_event
-where
-    event_id = /*eventId*/1
+WHERE
+    event_id = /*eventId*/'1'

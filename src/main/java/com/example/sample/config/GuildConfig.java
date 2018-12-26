@@ -41,7 +41,7 @@ public class GuildConfig implements Config {
 
     protected static DataSource createDataSource() {
 	      SimpleDataSource datasource = new SimpleDataSource();
-	      datasource.setUrl("jdbc:postgresql://apollo-db002.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/guild");
+	      datasource.setUrl("jdbc:postgresql://apollo-dbs002.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/guild");
 	      datasource.setUser("interdev");
 	      datasource.setPassword("interdev");
 		  System.out.println("GUILD");
