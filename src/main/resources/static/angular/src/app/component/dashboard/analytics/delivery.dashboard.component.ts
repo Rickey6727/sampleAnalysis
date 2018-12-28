@@ -100,7 +100,8 @@ export class DeliveryDashboardComponent implements OnInit{
 
 
     OnDeliveryEventButtonClick(): void {
-
+        this.img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+    
         this.captureEventStartDate = "loading...";
         this.captureEventEndDate = "loading...";
         this.captureEventTurtorialId = "loading...";
@@ -117,20 +118,19 @@ export class DeliveryDashboardComponent implements OnInit{
         this.coinCampaign8 = "loading...";
         this.captureEventActiveUserString = "loading...";
         this.captureEventTermString = "loading...";
-        this.totalDeliveryCount = 0;
+        this.totalDeliveryCountString = "loading...";
         this.uuCountString = "loading...";
-        this.deliveryDailyCount = 0;
         this.deliveryDailyCountString = "loading...";
-        this.deliveryTermCount = 0;
-        this.nextDeliveryTermCount = 0;
-
-        this.nextCaptureEventIdString =  "loading...";
+    
+        this.deliveryTermCountString = "loading...";
+        this.nextDeliveryTermCountString = "loading...";
+    
         this.nextCaptureEventStartDate = "loading...";
         this.nextCaptureEventEndDate = "loading...";
         this.nextCaptureEventTurtorialId = "loading...";
         this.nextCaptureEventActiveUserString = "loading...";
         this.nextCaptureEventTermString = "loading...";
-        this.nextTotalDeliveryCount = 0;
+        this.nextTotalDeliveryCountString = "loading...";
         this.nextCaptureEventTutorialPlayString = "loading...";
         this.nextCoinCampaign1 = "loading...";
         this.nextCoinCampaign2 = "loading...";
@@ -141,9 +141,15 @@ export class DeliveryDashboardComponent implements OnInit{
         this.nextCoinCampaign7 = "loading...";
         this.nextCoinCampaign8 = "loading...";
         this.nextUuCountString = "loading...";
-        this.nextDeliveryDailyCount = 0;
         this.nextDeliveryDailyCountString = "loading...";
+    
+        this.captureActiveUserRateString = "loading...";
+        this.captureNonActiveUserString = "loading...";
+        this.nextCaptureActiveUserRateString = "loading...";
+        this.nextCaptureNonActiveUserString = "loading...";
+    
         this.deliveryCsvCount = 1;
+        this.deliveryCsv();
 
         this.dataService.deliveryEventData(this.inputDeliveryEventId).subscribe(
             captureEventDataResult => this.setCaptureEventData(captureEventDataResult),
@@ -639,9 +645,12 @@ export class DeliveryDashboardComponent implements OnInit{
 
     deliveryCsv(): void {
         this.deliveryCsvCount --;
-        if (this.deliveryCsvCount == 0) {
+        if (this.deliveryCsvCount < 0) {
             document.getElementById('download_delivery').style.display='block';
             document.getElementById('loading_download_delivery').style.display='none';
+        } else {
+            document.getElementById('download_delivery').style.display='none';
+            document.getElementById('loading_download_delivery').style.display='block';
         }
     }
 }

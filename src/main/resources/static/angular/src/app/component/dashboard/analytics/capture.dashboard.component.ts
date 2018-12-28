@@ -101,12 +101,15 @@ export class CaptureDashboardComponent implements OnInit{
 
 
     OnCaptureEventButtonClick(): void {
+
+        this.captureCsvCount=1;
+        this.captureCsv();
+
+        this.img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+    
         this.captureEventStartDate = "loading...";
         this.captureEventEndDate = "loading...";
         this.captureEventTurtorialId = "loading...";
-        this.captureEventTutorialPlay = 0;
-        this.captureEventId = 0;
-        this.nextCaptureEventId = 0;
         this.coinCampaign1 = "loading...";
         this.coinCampaign2 = "loading...";
         this.coinCampaign3 = "loading...";
@@ -115,22 +118,22 @@ export class CaptureDashboardComponent implements OnInit{
         this.coinCampaign6 = "loading...";
         this.coinCampaign7 = "loading...";
         this.coinCampaign8 = "loading...";
-        this.captureEventActiveUser = 0;
-        this.captureEventTerm = 0;
-        this.totalCaptureCount = 0;
-        this.uuCount = 0;
-        this.captureDailyCount = 0;
         this.captureDailyCountString = "loading...";
-        this.captureTermCount = 0;
+    
+        this.captureEventTutorialPlayString = "loading...";
+        this.captureEventIdString = "loading...";
+        this.captureEventActiveUserString = "loading...";
+        this.captureEventTermString = "loading...";
+        this.totalCaptureCountString = "loading...";
+        this.uuCountString = "loading...";
+        this.captureTermCountString = "loading...";
+        this.captureActiveUserRateString = "loading...";
+        this.captureNonActiveUserString = "loading...";
     
         this.nextCaptureEventIdString =  "loading...";
         this.nextCaptureEventStartDate = "loading...";
         this.nextCaptureEventEndDate = "loading...";
         this.nextCaptureEventTurtorialId = "loading...";
-        this.nextCaptureEventActiveUser = 0;
-        this.nextCaptureEventTerm = 0;
-        this.nextTotalCaptureCount = 0;
-        this.nextCaptureEventTutorialPlay = 0;
         this.nextCoinCampaign1 = "loading...";
         this.nextCoinCampaign2 = "loading...";
         this.nextCoinCampaign3 = "loading...";
@@ -139,12 +142,16 @@ export class CaptureDashboardComponent implements OnInit{
         this.nextCoinCampaign6 = "loading...";
         this.nextCoinCampaign7 = "loading...";
         this.nextCoinCampaign8 = "loading...";
-        this.nextUuCount = 0;
-        this.nextCaptureDailyCount = 0;
         this.nextCaptureDailyCountString = "loading...";
-        this.nextCaptureTermCount = 0;
-
-        this.captureCsvCount=1;
+    
+        this.nextCaptureEventTutorialPlayString = "loading...";
+        this.nextCaptureEventActiveUserString = "loading...";
+        this.nextCaptureEventTermString = "loading...";
+        this.nextTotalCaptureCountString = "loading...";
+        this.nextUuCountString = "loading...";
+        this.nextCaptureTermCountString = "loading...";
+        this.nextCaptureActiveUserRateString = "loading...";
+        this.nextCaptureNonActiveUserString = "loading...";
 
     //eventデータベース
         //イベントID・期間・紙芝居ID
@@ -635,9 +642,6 @@ export class CaptureDashboardComponent implements OnInit{
             this.nextUuCount = nextUuCountResult.data.totalCount;
             this.nextUuCountString = this.nextUuCount.toString();
             this.captureCsv();
-            console.log(this.nextTotalCaptureCount);
-            console.log(this.nextCaptureEventTerm);
-            console.log(this.nextCaptureEventActiveUser);
             this.nextCaptureDailyCount = Math.round(this.nextTotalCaptureCount / this.nextCaptureEventTerm / this.nextCaptureEventActiveUser);
             this.nextCaptureDailyCountString = this.nextCaptureDailyCount.toString();
             this.nextCaptureActiveUserRate = Math.round(this.nextCaptureEventActiveUser / this.nextCaptureEventTutorialPlay * 100);
@@ -650,9 +654,12 @@ export class CaptureDashboardComponent implements OnInit{
 
     captureCsv(): void {
         this.captureCsvCount --;
-        if (this.captureCsvCount == 0) {
+        if (this.captureCsvCount < 0) {
             document.getElementById('download_capture').style.display='block';
             document.getElementById('loading_download_capture').style.display='none';
+        } else {
+            document.getElementById('download_capture').style.display='none';
+            document.getElementById('loading_download_capture').style.display='block';
         }
     }
 }

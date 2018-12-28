@@ -111,7 +111,8 @@ export class GachaDashboardComponent implements OnInit{
     allFreeTotalCountRate = 0;
     onlyCoinCountRate = 0;
 
-    gachaCsvCount=1;
+    gachaCsvCount=47;
+    gachaLoading=0;
 
 
     constructor(private dataService: DataService){}
@@ -122,23 +123,12 @@ export class GachaDashboardComponent implements OnInit{
     }
 
     onclick(): void {
+        this.img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
+    
         this.gachaId = "loading...";
         this.gachaTitle = "loading...";
-        this.img_src = "http://sozai.7gates.net/img/icon/loading/loading01_r3_c3.gif";
         this.salesStartDate = "loading...";
         this.salesEndDate = "loading...";
-        this.totalCount = 0;
-        this.freeTotalCount = 0;
-        this.allFreeTotalCount = 0;
-        this.termCount = 0;
-        this.clothesOwners = 0;
-        this.threeDaysCount = 0;
-        this.TenTwo = 0;
-        this.freeThreeDaysCount = 0;
-        this.allFreeThreeDaysCount = 0;
-        this.tenTwoThreeDaysCount = 0;
-        this.stepCount = 0;
-        this.stepCountThreeDaysCount = 0;
         this.kaburazu1 = "loading...";
         this.kaburazu2 = "loading...";
         this.kaburazu3 = "loading...";
@@ -156,26 +146,48 @@ export class GachaDashboardComponent implements OnInit{
         this.playKaisu12 = "loading...";
         this.playKaisu13 = "loading...";
         this.playKaisu14 = "loading...";
-        this.kaburazu1Count = 0;
-        this.kaburazu2Count = 0;
-        this.kaburazu3Count = 0;
-        this.playKaisu1Count = 0;
-        this.playKaisu2Count = 0;
-        this.playKaisu3Count = 0;
-        this.playKaisu4Count = 0;
-        this.playKaisu5Count = 0;
-        this.playKaisu6Count = 0;
-        this.playKaisu7Count = 0;
-        this.playKaisu8Count = 0;
-        this.playKaisu9Count = 0;
-        this.playKaisu10Count = 0;
-        this.playKaisu11Count = 0;
-        this.playKaisu12Count = 0;
-        this.playKaisu13Count = 0;
-        this.playKaisu14Count = 0;
-
-
-        this.gachaCsvCount=1;
+    
+        this.totalCountString = "loading...";
+        this.threeDaysCountString = "loading...";
+        this.freeTotalCountString = "loading...";
+        this.freeThreeDaysCountString = "loading...";
+        this.allFreeTotalCountString = "loading...";
+        this.onlyTicketCountString = "loading...";
+        this.onlyCoinCountString = "loading...";
+        this.freeTotalCountRateString = "loading...";
+        this.onlyTicketCountRateString = "loading...";
+        this.allFreeTotalCountRateString = "loading...";
+        this.onlyCoinCountRateString = "loading...";
+        this.TenTwoString = "loading...";
+        this.allFreeThreeDaysCountString = "loading...";
+        this.tenTwoThreeDaysCountString = "loading...";
+        this.stepCountString = "loading...";
+        this.stepCountThreeDaysCountString = "loading...";
+        this.termCountString = "loading...";
+    
+        this.kaburazu1CountString = "loading...";
+        this.kaburazu2CountString = "loading...";
+        this.kaburazu3CountString = "loading...";
+        this.playKaisu1CountString = "loading...";
+        this.playKaisu2CountString = "loading...";
+        this.playKaisu3CountString = "loading...";
+        this.playKaisu4CountString = "loading...";
+        this.playKaisu5CountString = "loading...";
+        this.playKaisu6CountString = "loading...";
+        this.playKaisu7CountString = "loading...";
+        this.playKaisu8CountString = "loading...";
+        this.playKaisu9CountString = "loading...";
+        this.playKaisu10CountString = "loading...";
+        this.playKaisu11CountString = "loading...";
+        this.playKaisu12CountString = "loading...";
+        this.playKaisu13CountString = "loading...";
+        this.playKaisu14CountString = "loading...";
+        this.totalKaburazuCountString = "loading...";
+        this.totalPlayKaisuCountString = "loading...";
+    
+        this.gachaCsvCount=47;
+        this.gachaCsv();
+        this.gachaLoading=0;
 
     //salesデータベース
         // タイトル・画像
@@ -237,8 +249,16 @@ export class GachaDashboardComponent implements OnInit{
             this.gachaId = dataResult.data.gachaId;
             this.gachaTitle = dataResult.data.gachaTitle;
             this.img_src = "http://www.cocoppaplay.com/image1/ui/" + dataResult.data.bannerImageUrl;
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             window.alert("ガチャIDが間違ってるよ！");
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -249,6 +269,10 @@ export class GachaDashboardComponent implements OnInit{
         }
         this.salesStartDate = salesResult.data.saleStartDate;
         this.salesEndDate = salesResult.data.saleEndDate;
+        this.gachaCsvCount --;
+        this.gachaCsv()
+        this.gachaCsvCount --;
+        this.gachaCsv()
         this.dataService.threeDaysData(this.inputId, this.salesStartDate).subscribe(
             threeDaysResult => this.setThreeDaysData(threeDaysResult),
             error => alert('通信エラー' + error)
@@ -296,8 +320,12 @@ export class GachaDashboardComponent implements OnInit{
             this.onlyCoinCountRateString = Math.round((this.totalCount - this.freeTotalCount) / this.totalCount * 100).toString();
             this.freeTotalCountRateString = Math.round(this.freeTotalCount / this.totalCount * 100).toString();
             this.onlyTicketCountString = (this.freeTotalCount - this.allFreeTotalCount).toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.freeTotalCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -310,8 +338,12 @@ export class GachaDashboardComponent implements OnInit{
             this.allFreeTotalCountString = this.allFreeTotalCount.toString();
             this.onlyTicketCountRateString = Math.round((this.freeTotalCount - this.allFreeTotalCount) / this.totalCount * 100).toString();
             this.allFreeTotalCountRateString = Math.round(this.allFreeTotalCount / this.totalCount * 100).toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.allFreeTotalCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -322,8 +354,12 @@ export class GachaDashboardComponent implements OnInit{
         if (TenTwoResult.data.totalCount) {
             this.TenTwo = TenTwoResult.data.totalCount;
             this.TenTwoString = this.TenTwo.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.TenTwoString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -334,8 +370,12 @@ export class GachaDashboardComponent implements OnInit{
         if (termResult.data.totalCount) {
             this.termCount = termResult.data.totalCount;
             this.termCountString = this.termCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.termCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -346,8 +386,12 @@ export class GachaDashboardComponent implements OnInit{
         if (threeDaysResult.data.totalCount) {
             this.threeDaysCount = threeDaysResult.data.totalCount;
             this.threeDaysCountString = this.threeDaysCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.threeDaysCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
              
         }
     }
@@ -359,8 +403,12 @@ export class GachaDashboardComponent implements OnInit{
         if (freeThreeDaysResult.data.totalCount) {
             this.freeThreeDaysCount = freeThreeDaysResult.data.totalCount;
             this.freeThreeDaysCountString = this.freeThreeDaysCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.freeThreeDaysCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
              
         }
     }
@@ -372,9 +420,11 @@ export class GachaDashboardComponent implements OnInit{
         if (allFreeThreeDaysResult.data.totalCount) {
             this.allFreeThreeDaysCount = allFreeThreeDaysResult.data.totalCount;
             this.allFreeThreeDaysCountString = this.allFreeThreeDaysCount.toString();
+            this.gachaCsvCount --;
             this.gachaCsv()
         } else {
             this.allFreeThreeDaysCountString = "(NO DATA)"
+            this.gachaCsvCount --;
             this.gachaCsv()
         }
     }
@@ -386,9 +436,12 @@ export class GachaDashboardComponent implements OnInit{
         if (tenTwoThreeDaysResult.data.totalCount) {
             this.tenTwoThreeDaysCount = tenTwoThreeDaysResult.data.totalCount;
             this.tenTwoThreeDaysCountString = this.tenTwoThreeDaysCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.tenTwoThreeDaysCountString = "(NO DATA)"
-             
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -399,8 +452,12 @@ export class GachaDashboardComponent implements OnInit{
         if (stepCountDataResult.data.totalCount) {
             this.stepCount = stepCountDataResult.data.totalCount;
             this.stepCountString = this.stepCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.stepCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
         this.dataService.stepCountThreeDaysData(this.inputId, this.salesStartDate).subscribe(
             stepCountThreeDaysResult => this.setstepCountThreeDaysData(stepCountThreeDaysResult),
@@ -415,8 +472,12 @@ export class GachaDashboardComponent implements OnInit{
         if (stepCountThreeDaysResult.data.totalCount) {
             this.stepCountThreeDaysCount = stepCountThreeDaysResult.data.totalCount;
             this.stepCountThreeDaysCountString = this.stepCountThreeDaysCount.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
         } else {
             this.stepCountThreeDaysCountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -426,24 +487,54 @@ export class GachaDashboardComponent implements OnInit{
         }
         if (kaburazuDataResult.data[0]) {
             this.kaburazu1 = kaburazuDataResult.data[0].exchangeId;
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.dataService.exchangeCountData(this.kaburazu1).subscribe(
                 kaburazuCountResult => this.setKaburazuCountData1(kaburazuCountResult),
                 error => alert('通信エラー' + error)
             );
+        } else {
+            this.kaburazu1CountString = "(NO DATA)"
+            this.kaburazu1 = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         }
         if (kaburazuDataResult.data[1]) {
             this.kaburazu2 = kaburazuDataResult.data[1].exchangeId;
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.dataService.exchangeCountData(this.kaburazu2).subscribe(
                 kaburazuCountResult => this.setKaburazuCountData2(kaburazuCountResult),
                 error => alert('通信エラー' + error)
             );
+        } else {
+            this.kaburazu2CountString = "(NO DATA)"
+            this.kaburazu2 = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         }
         if (kaburazuDataResult.data[2]) {
             this.kaburazu3 = kaburazuDataResult.data[2].exchangeId;
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.dataService.exchangeCountData(this.kaburazu3).subscribe(
                 kaburazuCountResult => this.setKaburazuCountData3(kaburazuCountResult),
                 error => alert('通信エラー' + error)
             );
+        } else {
+            this.kaburazu3CountString = "(NO DATA)"
+            this.kaburazu3 = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.gachaCsvCount --;
+            this.gachaCsv()
+            this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         }
     }
 
@@ -454,101 +545,241 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuDataResult.data) {
             if (playKaisuDataResult.data[0]) {
                 this.playKaisu1 = playKaisuDataResult.data[0].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu1).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData1(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu1CountString = "(NO DATA)"
+                this.playKaisu1 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[1]) {
                 this.playKaisu2 = playKaisuDataResult.data[1].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu2).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData2(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu2CountString = "(NO DATA)"
+                this.playKaisu2 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[2]) {
                 this.playKaisu3 = playKaisuDataResult.data[2].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu3).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData3(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu3CountString = "(NO DATA)"
+                this.playKaisu3 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[3]) {
                 this.playKaisu4 = playKaisuDataResult.data[3].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu4).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData4(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu4CountString = "(NO DATA)"
+                this.playKaisu4 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[4]) {
                 this.playKaisu5 = playKaisuDataResult.data[4].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu5).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData5(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu5CountString = "(NO DATA)"
+                this.playKaisu5 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[5]) {
                 this.playKaisu6 = playKaisuDataResult.data[5].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu6).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData6(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu6CountString = "(NO DATA)"
+                this.playKaisu6 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[6]) {
                 this.playKaisu7 = playKaisuDataResult.data[6].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu7).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData7(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu7CountString = "(NO DATA)"
+                this.playKaisu7 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[7]) {
                 this.playKaisu8 = playKaisuDataResult.data[7].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu8).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData8(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu8CountString = "(NO DATA)"
+                this.playKaisu8 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[8]) {
                 this.playKaisu9 = playKaisuDataResult.data[8].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu9).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData9(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu9CountString = "(NO DATA)"
+                this.playKaisu9 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[9]) {
                 this.playKaisu10 = playKaisuDataResult.data[9].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu10).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData10(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu10CountString = "(NO DATA)"
+                this.playKaisu10 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[10]) {
                 this.playKaisu11 = playKaisuDataResult.data[10].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu11).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData11(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu11CountString = "(NO DATA)"
+                this.playKaisu11 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[11]) {
                 this.playKaisu12 = playKaisuDataResult.data[11].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu12).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData12(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu12CountString = "(NO DATA)"
+                this.playKaisu12 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[12]) {
                 this.playKaisu13 = playKaisuDataResult.data[0].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu13).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData13(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu13CountString = "(NO DATA)"
+                this.playKaisu13 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
             if (playKaisuDataResult.data[13]) {
                 this.playKaisu14 = playKaisuDataResult.data[0].exchangeId;
+                this.gachaCsvCount --;
+                this.gachaCsv()
                 this.dataService.exchangeCountData(this.playKaisu14).subscribe(
                     kaburazuCountResult => this.setPlayKaisuCountData14(kaburazuCountResult),
                     error => alert('通信エラー' + error)
                 );
+            } else {
+                this.playKaisu14CountString = "(NO DATA)"
+                this.playKaisu14 = "(NO DATA)"
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.gachaCsvCount --;
+                this.gachaCsv()
+                this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
             }
         }
     }
@@ -560,9 +791,13 @@ export class GachaDashboardComponent implements OnInit{
         if (kaburazuCountResult.data.totalCount) {
             this.kaburazu1Count = kaburazuCountResult.data.totalCount;
             this.kaburazu1CountString = this.kaburazu1Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         } else {
             this.kaburazu1CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -573,9 +808,13 @@ export class GachaDashboardComponent implements OnInit{
         if (kaburazuCountResult.data.totalCount) {
             this.kaburazu2Count = kaburazuCountResult.data.totalCount;
             this.kaburazu2CountString = this.kaburazu2Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         } else {
             this.kaburazu2CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -586,9 +825,13 @@ export class GachaDashboardComponent implements OnInit{
         if (kaburazuCountResult.data.totalCount) {
             this.kaburazu3Count = kaburazuCountResult.data.totalCount;
             this.kaburazu3CountString = this.kaburazu3Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalKaburazuCountString = (this.kaburazu1Count + this.kaburazu2Count + this.kaburazu3Count).toString();
         } else {
             this.kaburazu3CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -599,9 +842,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu1Count = playKaisuCountResult.data.totalCount;
             this.playKaisu1CountString = this.playKaisu1Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu1CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -612,9 +859,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu2Count = playKaisuCountResult.data.totalCount;
             this.playKaisu2CountString = this.playKaisu2Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu2CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -625,9 +876,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu3Count = playKaisuCountResult.data.totalCount;
             this.playKaisu3CountString = this.playKaisu3Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu3CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -638,9 +893,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu4Count = playKaisuCountResult.data.totalCount;
             this.playKaisu4CountString = this.playKaisu4Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu4CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -651,9 +910,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu5Count = playKaisuCountResult.data.totalCount;
             this.playKaisu5CountString = this.playKaisu5Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu5CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -664,9 +927,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu6Count = playKaisuCountResult.data.totalCount;
             this.playKaisu6CountString = this.playKaisu6Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu6CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -677,9 +944,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu7Count = playKaisuCountResult.data.totalCount;
             this.playKaisu7CountString = this.playKaisu7Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu7CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -690,9 +961,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu8Count = playKaisuCountResult.data.totalCount;
             this.playKaisu8CountString = this.playKaisu8Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu8CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -703,9 +978,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu9Count = playKaisuCountResult.data.totalCount;
             this.playKaisu9CountString = this.playKaisu9Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu9CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -716,9 +995,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu10Count = playKaisuCountResult.data.totalCount;
             this.playKaisu10CountString = this.playKaisu10Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu10CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -729,9 +1012,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu11Count = playKaisuCountResult.data.totalCount;
             this.playKaisu11CountString = this.playKaisu11Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu11CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -742,9 +1029,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu12Count = playKaisuCountResult.data.totalCount;
             this.playKaisu12CountString = this.playKaisu12Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu12CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -755,9 +1046,13 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu13Count = playKaisuCountResult.data.totalCount;
             this.playKaisu13CountString = this.playKaisu13Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu13CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
@@ -768,17 +1063,25 @@ export class GachaDashboardComponent implements OnInit{
         if (playKaisuCountResult.data.totalCount) {
             this.playKaisu14Count = playKaisuCountResult.data.totalCount;
             this.playKaisu14CountString = this.playKaisu14Count.toString();
+            this.gachaCsvCount --;
+            this.gachaCsv()
             this.totalPlayKaisuCountString = (this.playKaisu1Count + this.playKaisu2Count + this.playKaisu3Count + this.playKaisu4Count + this.playKaisu5Count + this.playKaisu6Count + this.playKaisu7Count + this.playKaisu8Count + this.playKaisu9Count + this.playKaisu10Count + this.playKaisu11Count + this.playKaisu12Count + this.playKaisu13Count + this.playKaisu14Count).toString();
         } else {
             this.playKaisu14CountString = "(NO DATA)"
+            this.gachaCsvCount --;
+            this.gachaCsv()
         }
     }
 
     gachaCsv(): void {
-        this.gachaCsvCount --;
-        if (this.gachaCsvCount == 0) {
+        console.log(this.gachaCsvCount);
+        this.gachaLoading=Math.round((47-this.gachaCsvCount)/47*100);
+        if (this.gachaCsvCount < 1) {
             document.getElementById('download_gacha').style.display='block';
             document.getElementById('loading_download_gacha').style.display='none';
+        } else {
+            document.getElementById('download_gacha').style.display='none';
+            document.getElementById('loading_download_gacha').style.display='block';
         }
     }
 }

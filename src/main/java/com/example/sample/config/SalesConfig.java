@@ -41,10 +41,9 @@ public class SalesConfig implements Config {
 
     protected static DataSource createDataSource() {
 	      SimpleDataSource datasource = new SimpleDataSource();
-//	      datasource.setUrl("jdbc:postgresql://localhost:5432/sales");
-	      datasource.setUrl("jdbc:postgresql://apollo-dbs002.c3cpggfpqtmx.us-west-2.rds.amazonaws.com/sales");
-	      datasource.setUser("interdev");
-	      datasource.setPassword("interdev");
+	      datasource.setUrl("jdbc:postgresql://*****");
+	      datasource.setUser("*****");
+	      datasource.setPassword("*****");
 		  System.out.println("SALES");
 	      return new TransactionAwareDataSourceProxy(datasource);
     }

@@ -20,6 +20,7 @@ export class ClothesDashboardComponent implements OnInit{
     }
 
     OnButtonClick(): void {
+        this.resetLoading();
         this.clothesOwners = 0;
         this.clothesOwnersString = "loading...";
         
@@ -53,5 +54,11 @@ export class ClothesDashboardComponent implements OnInit{
         document.getElementById('loading_clothes_owners').style.display="none";
         document.getElementById('loading_download_clothes').style.display="none";
         document.getElementById('download_clothes').style.display='block';
+    }
+
+    resetLoading(): void {
+        document.getElementById('loading_clothes_owners').style.display="block";
+        document.getElementById('loading_download_clothes').style.display="block";
+        document.getElementById('download_clothes').style.display='none';
     }
 }
